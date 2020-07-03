@@ -49,6 +49,13 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run -nb '#3c3836' -nf '#fbf1c7' -sb '#83a598' -sf '#ebdbb2'
 
+# make a screenshot with maim to clipboard
+bindsym Print exec maim -s | xclip -selection clipboard -t image/png
+
+# ... to screenshot dir
+
+bindsym Shift+Print exec maim -s $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M).png 
+
 # mappings for quick file access
 bindsym $mod+Shift+t exec xterm -e vim todo.txt
 

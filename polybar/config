@@ -53,6 +53,8 @@ border-color = #282828
 override-redirect = true
 wm-restack=i3
 
+tray-position=right
+
 [module/date]
 type = internal/date
 date = %d-%m-%Y%
