@@ -14,10 +14,5 @@ else
   polybar --reload main -c ~/.config/polybar/config &
 fi
 
-# Launch bar(s)
-# polybar dummy -q &
-# polybar top -q &
-# polybar bottom -q  &
-
 echo "polybars launched..."
 
