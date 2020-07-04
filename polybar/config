@@ -57,7 +57,7 @@ tray-position=right
 
 [module/date]
 type = internal/date
-date = %d-%m-%Y%
+date = %H:%M, %d.%m.%Y%
 
 [module/xwindow]
 type = internal/xwindow

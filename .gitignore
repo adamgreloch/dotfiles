@@ -2,7 +2,15 @@
 !*/
 
 !.gitignore
+!.gitconfig
+!.bash_profile
+!.bashrc
+!.xinitrc
+!.Xresources
 !compton.conf
+!/redshift/**
+!/ranger/**
 !/i3/**
 !/polybar/**
+!/zathura/**
 

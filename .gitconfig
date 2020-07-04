@@ -1,0 +1,7 @@
+[user]
+	name = Adam Greloch
+	email = zplhatesbananas@gmail.com
+[core]
+	editor = vim
+[color]
+	ui = true

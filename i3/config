@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -57,7 +57,7 @@ bindsym Print exec maim -s | xclip -selection clipboard -t image/png
 bindsym Shift+Print exec maim -s $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M).png 
 
 # mappings for quick file access
-bindsym $mod+Shift+t exec xterm -e vim todo.txt
+bindsym $mod+Shift+t exec xterm -e vim Dropbox/tasks/todo.txt
 
 # start ranger
 bindsym $mod+o exec xterm -e ranger
@@ -242,4 +242,7 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 # exec hsetroot -solid '#000000'
 
 exec --no-startup-id $HOME/.fehbg
+exec --no-startup-id dropbox start
+exec --no-startup-id redshift
+
 
