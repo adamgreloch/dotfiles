@@ -6,12 +6,7 @@ xterm*renderFont: true
 xterm*faceName: Hack
 xterm*faceSize: 13
 
-! *foreground: rgb:b2/b2/b2
-! *background: rgb:08/08/08
-
-! hard contrast: *background: #1d2021
 *background: #282828
-! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #282828

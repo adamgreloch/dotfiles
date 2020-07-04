@@ -1,7 +1,10 @@
 [user]
 	name = Adam Greloch
 	email = zplhatesbananas@gmail.com
+	signingkey = A532872D664CD190
 [core]
 	editor = vim
 [color]
 	ui = true
+[commit]
+	gpgsign = true

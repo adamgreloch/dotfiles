@@ -6,3 +6,4 @@
 
 exec startx
 
+export GPG_TTY=$(tty)
