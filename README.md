@@ -1,5 +1,9 @@
 # dotfiles
 
+My i3-gaps Artix Linux dotfiles
+
+## Installation
+
 * make sure to create necessary symlinks:
 
 ```

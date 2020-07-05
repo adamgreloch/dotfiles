@@ -45,7 +45,7 @@ exec --no-startup-id nm-applet
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec --no-startup-id xterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -54,17 +54,17 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run -nb '#3c3836' -nf '#fbf1c7' -sb '#83a598' -sf '#ebdbb2'
 
 # make a screenshot with maim to clipboard
-bindsym Print exec maim -s | xclip -selection clipboard -t image/png
+bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 # ... to screenshot dir
 
-bindsym Shift+Print exec maim -s $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M).png 
+bindsym Shift+Print exec --no-startup-id maim -s $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png 
 
 # mappings for quick file access
-bindsym $mod+Shift+t exec xterm -e vim Dropbox/tasks/todo.txt
+bindsym $mod+Shift+t exec --no-startup-id xterm -e vim Dropbox/tasks/todo.txt
 
 # start ranger
-bindsym $mod+o exec xterm -e ranger
+bindsym $mod+o exec --no-startup-id xterm -e ranger
 
 # start rofi
 bindsym $mod+d exec rofi window#drun#ssh -theme gruvbox-dark -font "Hack 13" -show combi
@@ -74,9 +74,9 @@ bindsym $mod+d exec rofi window#drun#ssh -theme gruvbox-dark -font "Hack 13" -sh
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -240,11 +240,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 exec --no-startup-id compton --config ~/.config/compton.conf -b
-
-# exec hsetroot -solid '#000000'
-
 exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift
