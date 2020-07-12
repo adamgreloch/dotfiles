@@ -6,6 +6,7 @@
 !.bash_profile
 !.bashrc
 !.xinitrc
+!.xprofile
 !.Xresources
 !compton.conf
 !**/redshift
