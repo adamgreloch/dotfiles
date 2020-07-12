@@ -4,13 +4,15 @@ My i3-gaps Artix Linux dotfiles
 
 ## Installation
 
-* make sure to create necessary symlinks:
+Make `create-symlinks.sh` executable and run it with specifying config type of
+your interest:
 
 ```
-$ ln -s ~/.config/.Xresources ~/.Xresources
-$ ln -s ~/.config/.xinitrc ~/.xinitrc
-$ ln -s ~/.config/.bash_profile ~/.bash_profile
-$ ln -s ~/.config/.bashrc ~/.bashrc
-$ ln -s ~/.config/.gitconfig ~/.gitconfig
+git clone git@github.com:adamgreloch/dotfiles.git
+cd dotfiles
+chmod +x create-symlinks.sh
+./create-symlinks.sh
 ```
+
+**NOTE:** I haven't yet tested it. Be careful.
 
