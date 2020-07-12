@@ -1,4 +1,5 @@
 /desktop/*
+/surface-vm/*
 !README.md
 !.gitignore
 !.gitconfig

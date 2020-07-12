@@ -1,0 +1,104 @@
+[bar/main-dp]
+; scroll-up = i3wm-wsnext
+; scroll-down = i3wm-wsprev
+monitor = Virtual1
+fixed-center = true
+modules-left = i3 xwindow
+modules-right = pulseaudio date
+
+font-0 = Hack:size=14;2
+
+width = 99%
+height = 2%
+offset-x = 0.5%
+offset-y = 0.8%
+
+; background = #CF282828
+foreground = #ebdbb2
+separator = |
+module-margin-right = 1
+module-margin-left = 1
+
+padding-right = 1
+
+border-size = 3
+; border-color = #282828
+
+override-redirect = true
+wm-restack=i3
+
+tray-position=center
+
+[module/date]
+type = internal/date
+date = %H:%M, %d.%m.%Y%
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 100
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+[module/pulseaudio]
+
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+label-volume = %percentage%%
+label-muted = muted 
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+# vim:ft=dosini
+
