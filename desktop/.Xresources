@@ -6,6 +6,16 @@ xterm*renderFont: true
 xterm*faceName: Hack
 xterm*faceSize: 13
 
+URxvt.termName: rxvt-unicode-256color
+URxvt*font: xft:Hack:size=13
+URxvt*scrollBar: false
+URxvt.letterSpace: -1
+
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher: google-chrome-stable
+URxvt.url-select.underline: true
+URxvt.url-select.button: 1
+
 *background: #282828
 *foreground: #ebdbb2
 ! Black + DarkGrey

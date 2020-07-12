@@ -1,4 +1,4 @@
-*
+/desktop/*
 !README.md
 !.gitignore
 !.gitconfig
@@ -7,9 +7,9 @@
 !.xinitrc
 !.Xresources
 !compton.conf
-!/redshift/**
-!/ranger/**
-!/i3/**
-!/polybar/**
-!/zathura/**
+!**/redshift
+!**/ranger
+!**/i3
+!**/polybar
+!**/zathura
 

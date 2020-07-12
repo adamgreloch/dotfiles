@@ -4,7 +4,7 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-exec startx
+startx
 
 export GPG_TTY=$(tty)
 
