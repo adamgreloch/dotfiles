@@ -8,3 +8,10 @@
 	ui = true
 [commit]
 	gpgsign = true
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[rebase]
+	autoStash = true
+[status]
+	branch = true
+	short = true
