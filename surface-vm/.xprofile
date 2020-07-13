@@ -1,4 +1,9 @@
 #!/bin/sh
-# xrandr --newmode "2736x1824_60.00"  426.00  2736 2952 3248 3760  1824 1827 1837 1890 -hsync +vsync
+
+if ! xrandr | grep 2736x1824_60.00; then
+	xrandr --newmode "2736x1824_60.00"  426.00  2736 2952 3248 3760  1824 1827 1837 1890 -hsync +vsync
+fi
 xrandr --addmode Virtual1 2736x1824_60.00
+xrandr --output Virtual1 --mode 2736x1824_60.00 --scale 1x1
+
 
