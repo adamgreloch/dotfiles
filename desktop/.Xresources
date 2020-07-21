@@ -3,7 +3,7 @@ XTerm.vt100.locale: true
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.saveLines: 4096
 xterm*renderFont: true
-xterm*faceName: Hack
+xterm*faceName: MesloLGS Nerd Font Mono
 xterm*faceSize: 13
 
 URxvt.termName: rxvt-unicode-256color

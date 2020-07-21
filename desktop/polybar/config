@@ -4,7 +4,7 @@
 monitor = DP-0.8
 fixed-center = true
 modules-left = i3 xwindow
-modules-right = pulseaudio date
+modules-right = music pulseaudio date
 
 font-0 = Hack:size=10;2
 
@@ -13,7 +13,7 @@ height = 2%:+4
 offset-x = 0.5%
 offset-y = 0.8%
 
-background = #CF282828
+background = #AF282828
 foreground = #ebdbb2
 separator = |
 module-margin-right = 1
@@ -54,6 +54,12 @@ override-redirect = true
 wm-restack=i3
 
 tray-position=right
+
+[module/music]
+type = custom/script
+interval = 1
+label = %output%
+exec = ~/.config/polybar/music
 
 [module/date]
 type = internal/date
@@ -116,7 +122,7 @@ type = internal/pulseaudio
 sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
 label-volume = %percentage%%
-label-muted = muted 
+label-muted = %{F#999}muted%{F-}
 
 ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
 ; Default: true
