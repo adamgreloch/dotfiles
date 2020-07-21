@@ -6,15 +6,13 @@ My i3-gaps Arch Linux dotfiles
 
 ## Installation
 
-Make `create-symlinks.sh` executable and run it with specifying config type of
-your interest:
+Make `create-symlinks.sh` executable and run it while passing a desired config
+name (i.e. `desktop`):
 
 ```
 git clone git@github.com:adamgreloch/dotfiles.git
 cd dotfiles
 chmod +x create-symlinks.sh
-./create-symlinks.sh
+./create-symlinks.sh <config name>
 ```
-
-**NOTE:** I haven't yet tested it. Be careful.
 
