@@ -1,6 +1,8 @@
 # dotfiles
 
-My i3-gaps Artix Linux dotfiles
+![](https://i.imgur.com/ipYskwO.jpg)
+
+My i3-gaps Arch Linux dotfiles
 
 ## Installation
 
