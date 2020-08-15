@@ -5,10 +5,11 @@
 !.gitconfig
 !.bash_profile
 !.bashrc
+!.zshrc
 !.xinitrc
 !.xprofile
 !.Xresources
-!compton.conf
+!picom.conf
 !**/redshift
 !**/ranger
 !**/i3

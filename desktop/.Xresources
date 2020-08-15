@@ -5,6 +5,7 @@ XTerm.vt100.saveLines: 4096
 xterm*renderFont: true
 xterm*faceName: MesloLGS Nerd Font Mono
 xterm*faceSize: 13
+xterm*backarrowKey: false
 
 URxvt.termName: rxvt-unicode-256color
 URxvt*font: xft:Hack:size=13
