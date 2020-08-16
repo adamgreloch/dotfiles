@@ -8,9 +8,9 @@ modules-right = music pulseaudio date
 
 font-0 = Hack:size=10;2
 
-width = 99%
-height = 2%:+4
-offset-x = 0.5%
+width = 50%
+height = 2%
+offset-x = 25%
 offset-y = 0.8%
 
 background = #AF282828
@@ -34,9 +34,9 @@ modules-left = i3
 
 font-0 = Hack:size=10;2
 
-width = 99%
-height = 2%:+4
-offset-x = 0.5%
+width = 50%
+height = 2%
+offset-x = 25%
 offset-y = 0.8%
 
 background = #CF282828
@@ -68,7 +68,7 @@ date = %H:%M, %d.%m.%Y%
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 100
+label-maxlen = 60
 
 [module/i3]
 type = internal/i3

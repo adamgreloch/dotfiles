@@ -3,19 +3,13 @@ XTerm.vt100.locale: true
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.saveLines: 4096
 xterm*renderFont: true
-xterm*faceName: MesloLGS Nerd Font Mono
-xterm*faceSize: 13
+xterm*faceName: MesloLGS Nerd Font Mono:size=12
+!xterm*faceName: Hack:size=12
+!xterm*font: -Gohu-Gohufont-Medium-R-Normal--14-100-100-100-C-80-ISO10646-1
+!xterm*faceSize: 13
 xterm*backarrowKey: false
-
-URxvt.termName: rxvt-unicode-256color
-URxvt*font: xft:Hack:size=13
-URxvt*scrollBar: false
-URxvt.letterSpace: -1
-
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
-URxvt.url-select.launcher: google-chrome-stable
-URxvt.url-select.underline: true
-URxvt.url-select.button: 1
+xterm*BorderWidth: 10
+xterm*BorderColor: #282828
 
 *background: #282828
 *foreground: #ebdbb2
