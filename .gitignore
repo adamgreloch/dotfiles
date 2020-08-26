@@ -12,7 +12,10 @@
 !picom.conf
 !**/redshift
 !**/ranger
+!**/rofi
 !**/i3
+!**/bspwm
+!**/sxhkd
 !**/polybar
 !**/zathura
 

@@ -41,7 +41,7 @@ bindsym $mod+Ctrl+f exec --no-startup-id firefox
 bindsym $mod+Ctrl+s exec --no-startup-id spotify
 
 # start rofi
-bindsym $mod+d exec rofi window#drun#ssh -theme gruvbox-dark -font "Hack 13" -show combi
+bindsym $mod+d exec rofi window#drun#ssh -theme gruvbox-dark -font "Terminus 11" -show combi -width 40
 
 # PulseAudio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -175,9 +175,8 @@ client.background       $bg2
 for_window [class=".*"] border pixel 2
 
 # set i3-gaps
-gaps inner 10
-gaps top 38
-
+gaps inner 15
+gaps top 41
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
@@ -212,11 +211,9 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id picom --config ~/.config/picom.conf -b
-exec --no-startup-id xset dpms 600
+exec --no-startup-id xset dpms 300
 exec --no-startup-id xset r rate 300 25
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 000000'
 exec --no-startup-id $HOME/.fehbg
-#exec --no-startup-id hsetroot -solid "#181818"
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift
 exec --no-startup-id unclutter

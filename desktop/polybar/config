@@ -6,22 +6,24 @@ fixed-center = true
 modules-left = i3 xwindow
 modules-right = music pulseaudio date
 
-font-0 = Hack:size=10;2
+;font-0 = Hack:size=10;2
+font-0 = Gohu GohuFont:size=11;1
 
 width = 50%
 height = 2%
 offset-x = 25%
-offset-y = 0.8%
+offset-y = 1.25%
 
 background = #AF282828
 foreground = #ebdbb2
-separator = |
+separator = 
 module-margin-right = 1
 module-margin-left = 1
 
+padding-left = 1
 padding-right = 1
 
-border-size = 3
+border-size = 2
 border-color = #282828
 
 override-redirect = true
@@ -32,22 +34,24 @@ wm-restack=i3
 monitor = HDMI-0
 modules-left = i3
 
-font-0 = Hack:size=10;2
+;font-0 = Hack:size=10;2
+font-0 = Gohu GohuFont:size=11;1
 
 width = 50%
 height = 2%
 offset-x = 25%
-offset-y = 0.8%
+offset-y = 1.25%
 
 background = #CF282828
 foreground = #ebdbb2
-separator = |
+separator = 
 module-margin-right = 1
 module-margin-left = 1
 
+padding-left = 1
 padding-right = 1
 
-border-size = 3
+border-size = 2
 border-color = #282828
 
 override-redirect = true
@@ -63,12 +67,12 @@ exec = ~/.config/polybar/music
 
 [module/date]
 type = internal/date
-date = %H:%M, %d.%m.%Y%
+date = %H:%M - %d.%m.%Y%
 
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 60
+label-maxlen = 100
 
 [module/i3]
 type = internal/i3

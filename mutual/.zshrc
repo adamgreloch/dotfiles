@@ -1,5 +1,3 @@
-# Luke's config for the Zoomer Shell
-
 # Enable colors and change prompt:
 autoload -U colors && colors
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -71,16 +69,29 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 alias ls='ls -a --color=auto'
+alias mv='mv -v'
+alias cp='cp -v'
 alias rm='rm -I'
 
-PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH; export PATH
+export PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
 MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH; export MANPATH
 INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 RANGER_LOAD_DEFAULT_RC=FALCE:$RANGER_LOAD_DEFAULT_RC; export RANGER_LOAD_DEFAULT_RC
 
+export PATH="$PATH:/home/adam/.local/bin"
+export TERMINAL=xterm-256color
+export EDITOR=vim
+export VISUAL=vim
+
 # Load zsh-syntax-highlighting; should be last.
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+#export FZF_DEFAULT_COMMAND='ag'
+export FZF_CTRL_T_COMMAND="ag"
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 
-# Created by `userpath` on 2020-08-16 22:40:14
-export PATH="$PATH:/home/adam/.local/bin"
