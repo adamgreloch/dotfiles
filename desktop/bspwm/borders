@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+#   double borders
+#
+
+outer='0x282828'   # outer
+inner2='0x504945'  # normal
+inner1='0x7c6f64'  # focused
+
+targets() {
+	case $1 in
+		focused) bspc query -N -n .local.focused.\!fullscreen;;
+		normal)  bspc query -N -n .local.\!focused.\!fullscreen
+	esac | grep -iv "$v"
+}
+bspc config border_width 12
+
+draw() { chwb2 -I "$inner" -O "$outer" -i "2" -o "9" $* |:; }
+
+# initial draw, and then subscribe to events
+{ echo; bspc subscribe node_geometry node_focus; } |
+	while read -r _; do
+		v=$(echo $(xdo id -N Firefox))
+		v=${v// /\\|}
+		[ "$v" ] || v='abcdefg'
+		inner=$inner1 draw "$(targets focused)"
+		inner=$inner2 draw "$(targets  normal)"
+	done
+

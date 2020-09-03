@@ -1,30 +1,41 @@
+[colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+color9 = ${xrdb:color9:#222}
+
 [bar/main-dp]
 ; scroll-up = i3wm-wsnext
 ; scroll-down = i3wm-wsprev
 monitor = DP-0.8
 fixed-center = true
 modules-left = i3 xwindow
-modules-right = music pulseaudio date
+modules-right = music pulseaudio cpu memory filesystem network date
 
 ;font-0 = Hack:size=10;2
 font-0 = Gohu GohuFont:size=11;1
 
-width = 50%
-height = 2%
-offset-x = 25%
-offset-y = 1.25%
+width = 99%
+height = 1.8%
+offset-x = 0.5%
+offset-y = 0.8%
 
-background = #AF282828
-foreground = #ebdbb2
-separator = 
+background = ${colors.background}
+foreground = ${colors.foreground}
+;background = #AA282828
+;foreground = #ebdbb2
+separator = |
 module-margin-right = 1
 module-margin-left = 1
 
 padding-left = 1
 padding-right = 1
 
-border-size = 2
-border-color = #282828
+border-size = 0
+border-color = ${colors.secondary}
 
 override-redirect = true
 wm-restack=i3
@@ -37,13 +48,14 @@ modules-left = i3
 ;font-0 = Hack:size=10;2
 font-0 = Gohu GohuFont:size=11;1
 
-width = 50%
-height = 2%
-offset-x = 25%
-offset-y = 1.25%
+width = 99%
+height = 1.8%
+offset-x = 0.5%
+offset-y = 0.8%
 
-background = #CF282828
-foreground = #ebdbb2
+background = ${colors.background}
+foreground = ${colors.foreground}
+
 separator = 
 module-margin-right = 1
 module-margin-left = 1
@@ -51,8 +63,8 @@ module-margin-left = 1
 padding-left = 1
 padding-right = 1
 
-border-size = 2
-border-color = #282828
+border-size = 0
+border-color = ${colors.primary}
 
 override-redirect = true
 wm-restack=i3
@@ -87,7 +99,10 @@ pin-workspaces = true
 
 ; This will split the workspace name on ':'
 ; Default: false
-strip-wsnumbers = true
+strip-wsnumbers = false
+
+label-focused-foreground = ${colors.foreground}
+label-unfocused-foreground = ${colors.color9}
 
 ; Sort the workspaces by index instead of the default
 ; sorting that groups the workspaces by output
@@ -117,6 +132,55 @@ reverse-scroll = false
 ; Default: false
 fuzzy-match = true
 
+[module/network]
+type = internal/network
+
+interface = enp6s0
+
+interval = 3.0
+
+spacing = 1
+
+label-connected = %downspeed% %upspeed%
+
+udspeed-minwidth = 2
+
+accumulate-stats = true
+
+unknown-as-up = true
+
+[module/cpu]
+type = internal/cpu
+
+interval = 3
+
+label = cpu %percentage%%
+
+[module/memory]
+type = internal/memory
+
+interval = 3
+
+label = ram %percentage_used%%
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+mount-1 = /home
+mount-2 = /media
+mount-3 = /mnt
+
+interval = 10
+
+fixed-values = true
+
+label-mounted = %mountpoint% %percentage_used%% 
+label-unmounted = %mountpoint%
+label-unmounted-foreground = ${colors.color9}
+
+spacing = 1
+
 [module/pulseaudio]
 
 type = internal/pulseaudio
@@ -125,7 +189,7 @@ type = internal/pulseaudio
 ; If not, uses default sink
 sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
-label-volume = %percentage%%
+label-volume = vol %percentage%%
 label-muted = %{F#999}muted%{F-}
 
 ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false

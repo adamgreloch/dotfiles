@@ -78,7 +78,7 @@ MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH; export MANPATH
 INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 RANGER_LOAD_DEFAULT_RC=FALCE:$RANGER_LOAD_DEFAULT_RC; export RANGER_LOAD_DEFAULT_RC
 
-export PATH="$PATH:/home/adam/.local/bin"
+export PATH="/home/adam/.local/bin:$PATH"
 export TERMINAL=xterm-256color
 export EDITOR=vim
 export VISUAL=vim

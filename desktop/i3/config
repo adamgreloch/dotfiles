@@ -41,7 +41,7 @@ bindsym $mod+Ctrl+f exec --no-startup-id firefox
 bindsym $mod+Ctrl+s exec --no-startup-id spotify
 
 # start rofi
-bindsym $mod+d exec rofi window#drun#ssh -theme gruvbox-dark -font "Terminus 11" -show combi -width 40
+bindsym $mod+d exec rofi window#drun#ssh -theme "~/.cache/wal/colors-rofi-dark" -font "Terminus 11" -show combi -width 40
 
 # PulseAudio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -150,33 +150,28 @@ bindsym $mod+Ctrl+l exec --no-startup-id xautolock -locknow
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# set gruvbox colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $bg0_h #1d2021
-set $bg2 #504945
-set $bg3 #665c54
-set $bg4 #7c6f64
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $c1 i3wm.color1 #f0f0f0
+set_from_resource $c2 i3wm.color2 #f0f0f0
+set_from_resource $c3 i3wm.color3 #f0f0f0
+set_from_resource $c12 i3wm.color12 #f0f0f0
 
-client.focused          $bg2 $bg2 $yellow $bg4 $bg3
-client.focused_inactive $bg $bg $yellow $bg3 $bg
-client.unfocused        $bg $bg $bg4 $bg3 $bg
-client.urgent           $red $red $white $red $red
+# class                 border  backgr. text indicator child_border
+client.focused          $c12     $bg     $fg  $bg       $c12
+client.focused_inactive $bg     $bg     $fg  $bg       $c1
+client.unfocused        $bg     $bg     $fg  $bg       $c1
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
 
-client.background       $bg2
+client.background       $bg
 
 # disable window titlebars (i3-gaps)
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 
 # set i3-gaps
-gaps inner 15
-gaps top 41
+gaps inner 10
+gaps top 33
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
