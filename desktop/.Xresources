@@ -3,9 +3,10 @@ XTerm.vt100.locale: true
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.saveLines: 4096
 xterm*renderFont: true
-!xterm*faceName: MesloLGS Nerd Font Mono:size=13
+!xterm*faceName: MesloLGM Nerd Font Mono:size=12
 !xterm*faceName: Hack:size=12
 xterm*font: -Gohu-Gohufont-Medium-R-Normal--14-100-100-100-C-80-ISO10646-1
 xterm*backarrowKey: false
-xterm*BorderWidth: 5
+xterm*BorderWidth: 6
+!xterm*font: -Gohu-Gohufont-Medium-R-Normal--22-160-100-100-C-120-ISO10646-1
 
