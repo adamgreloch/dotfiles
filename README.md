@@ -1,6 +1,6 @@
 # dotfiles
 
-![](https://i.imgur.com/H7huOjQ.png)
+![](https://i.imgur.com/TAlRtXB.png)
 
 My i3-gaps Arch Linux dotfiles
 
