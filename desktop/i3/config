@@ -19,7 +19,9 @@ bindsym $mod+Return exec --no-startup-id xterm
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# make a screenshot with maim to clipboard; combine with SHIFT to save as jpg
+# make a screenshot with maim to clipboard;
+# combine with SHIFT to save as png;
+# combine with CTRL to capture current window
 bindsym Print exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
 bindsym Shift+Print exec --no-startup-id maim -s -u --hidecursor $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
 bindsym Ctrl+Print exec --no-startup-id maim -u -i $(xdotool getactivewindow) $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
