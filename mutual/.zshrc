@@ -72,6 +72,7 @@ alias ls='ls -a --color=auto'
 alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -I'
+alias v='vim'
 
 export PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
 MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH; export MANPATH

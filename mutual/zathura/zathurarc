@@ -2,4 +2,5 @@ set adjust-open "bestfit"
 set scroll-page-aware "true"
 set scroll-step 100
 set font "Gohu GohuFont 10"
+set guioptions s
 

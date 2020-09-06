@@ -1,0 +1,9 @@
+configuration {
+	modi: "combi";
+	font: "Gohu GohuFont 9";
+	theme: "~/.cache/wal/colors-rofi-dark";
+	width: 30;
+	lines: 30;
+	location: 0;
+}
+

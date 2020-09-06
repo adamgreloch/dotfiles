@@ -19,6 +19,10 @@ bindsym $mod+Return exec --no-startup-id xterm
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# configuration
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+
 # make a screenshot with maim to clipboard;
 # combine with SHIFT to save as png;
 # combine with CTRL to capture current window
@@ -36,7 +40,8 @@ bindsym $mod+Ctrl+f exec --no-startup-id firefox
 bindsym $mod+Ctrl+s exec --no-startup-id spotify
 
 # start rofi
-bindsym $mod+d exec rofi window#drun#ssh -theme "~/.cache/wal/colors-rofi-dark" -font "Gohu GohuFont 10" -show combi -width 40
+bindsym $mod+d exec rofi window -show combi
+#bindsym $mod+d exec rofi window#drun#ssh -theme "~/.cache/wal/colors-rofi-dark" -font "Gohu GohuFont 10" -show combi -width 40
 
 # PulseAudio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -86,6 +91,9 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -173,6 +181,10 @@ mode "$mode_gaps_inner" {
         bindsym plus  gaps inner all plus 10
         bindsym minus gaps inner all minus 10
         bindsym 0     gaps inner all set 10
+
+        bindsym Shift+plus  gaps inner current plus 10
+        bindsym Shift+minus gaps inner current minus 10
+        bindsym Shift+0     gaps inner current set 10
 
         bindsym Escape mode "default"
 }
