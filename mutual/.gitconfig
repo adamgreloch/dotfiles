@@ -4,6 +4,7 @@
 	signingkey = A532872D664CD190
 [core]
 	editor = vim
+	autocrlf = input
 [color]
 	ui = true
 [commit]
@@ -23,3 +24,4 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+

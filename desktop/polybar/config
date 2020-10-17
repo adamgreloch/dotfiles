@@ -79,7 +79,7 @@ exec = ~/.config/polybar/music
 
 [module/date]
 type = internal/date
-date = %H:%M - %d.%m.%Y%
+date = %H:%M - %a, %d.%m.%Y%
 
 [module/xwindow]
 type = internal/xwindow
@@ -144,6 +144,9 @@ spacing = 1
 label-connected = %downspeed% %upspeed%
 
 udspeed-minwidth = 2
+
+label-disconnected = WE ARE FUCKED
+label-disconnected-foreground = #E80424
 
 accumulate-stats = true
 

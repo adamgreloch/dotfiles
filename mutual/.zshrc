@@ -1,8 +1,12 @@
+# Start tmux on SSH session
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+  tmux attach-session -t ssh || tmux new-session -s ssh
+fi
+
 # Enable colors and change prompt:
 autoload -U colors && colors
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-#PS1="%B%{$fg[grey]%}[%{$fg[cyan]%}%n@%M %{$fg[white]%}%~%{$fg[grey]%}]%{$reset_color%}$%b "
-PS1="%B%~%b $ "
+#PS1="%B%~%b $ "
+PS1="%B%c%b $ "
 
 # History in cache directory:
 HISTSIZE=10000
@@ -70,9 +74,18 @@ bindkey '^e' edit-command-line
 
 alias ls='ls -a --color=auto'
 alias mv='mv -v'
-alias cp='cp -v'
+# alias cp='cp -v'\
+alias cp='rsync --info=progress2'
 alias rm='rm -I'
 alias v='vim'
+alias vi3='vim .config/i3/config'
+alias vpol='vim .config/polybar/config'
+alias vxr='vim .Xresources'
+alias shdn='shutdown now'
+
+if [[ -n "$SSH_CONNECTION" ]]; then
+	alias vim='vim -X'
+fi
 
 export PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
 MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH; export MANPATH
@@ -83,6 +96,7 @@ export PATH="/home/adam/.local/bin:$PATH"
 export TERMINAL=xterm-256color
 export EDITOR=vim
 export VISUAL=vim
+export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/fzf/key-bindings.zsh
