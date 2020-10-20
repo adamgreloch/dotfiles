@@ -7,6 +7,7 @@ fi
 autoload -U colors && colors
 #PS1="%B%~%b $ "
 PS1="%B%c%b $ "
+#RPROMPT="%F{09} %T%f"
 
 # History in cache directory:
 HISTSIZE=10000
