@@ -191,9 +191,9 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 20
+gaps inner 13
 #gaps inner 0
-gaps top 22
+gaps bottom 22
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt

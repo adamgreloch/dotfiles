@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$1" != "surface-vm" -a "$1" != "desktop" ]; then
-	echo "Are you sure that configuration for $1 exists? Because I'm not"
+	echo "Configuration for $1 does not exist."
 	exit 1
 fi
 

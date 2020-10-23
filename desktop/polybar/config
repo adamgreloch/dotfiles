@@ -27,7 +27,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 ;background = #AA282828
 ;foreground = #ebdbb2
-separator = |
+separator = 
 module-margin-right = 1
 module-margin-left = 1
 
@@ -40,8 +40,9 @@ border-color = ${colors.secondary}
 override-redirect = true
 wm-restack=i3
 
-[bar/main-hdmi]
+bottom=true
 
+[bar/main-hdmi]
 monitor = HDMI-0
 modules-left = i3
 
@@ -70,6 +71,8 @@ override-redirect = true
 wm-restack=i3
 
 tray-position=right
+
+bottom=true
 
 [module/music]
 type = custom/script
@@ -185,8 +188,22 @@ label-unmounted-foreground = ${colors.color9}
 spacing = 1
 
 [module/pulseaudio]
-
 type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+
+bar-volume-width = 10
+;bar-volume-foreground = ${colors.color7}
+
+bar-volume-gradient = false
+bar-volume-indicator = |
+;bar-volume-indicator-font = 0
+bar-volume-fill = |
+;bar-volume-fill-font = 0
+bar-volume-fill-foreground = ${colors.foreground}
+bar-volume-empty = |
+;bar-volume-empty-font = 0
+bar-volume-empty-foreground = ${colors.color9}
 
 ; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
 ; If not, uses default sink
@@ -197,7 +214,7 @@ label-muted = %{F#999}muted%{F-}
 
 ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
 ; Default: true
-use-ui-max = true
+use-ui-max = false
 
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5

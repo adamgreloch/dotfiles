@@ -3,13 +3,14 @@ XTerm.vt100.locale: true
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.saveLines: 4096
 xterm*renderFont: true
-!xterm*faceName: MesloLGM Nerd Font Mono:size=12
-xterm*faceName: Hack:size=12
+!xterm*faceName: MesloLGM Nerd Font Mono:size=11
+xterm*faceName: Hack:size=11
 !xterm*font: -Gohu-Gohufont-Medium-R-Normal--14-100-100-100-C-80-ISO10646-1
 xterm*backarrowKey: false
 xterm*BorderWidth: 8
 !xterm*font: -Gohu-Gohufont-Medium-R-Normal--22-160-100-100-C-120-ISO10646-1
 
+Xft.dpi: 93
 
 XTerm.VT100.translations: #override \
 Super <Key> minus: smaller-vt-font() \n\
@@ -17,4 +18,40 @@ Super <Key> plus: larger-vt-font() \n\
 Super <Key> KP_Subtract: smaller-vt-font() \n\
 Super <Key> KP_Add: larger-vt-font() \n
 
+! special
+*.foreground:   #565e65
+*.background:   #f3f4f5
+*.cursorColor:  #565e65
+
+! black
+*.color0:       #1c2023
+*.color8:       #747c84
+
+! red
+*.color1:       #c7ae95
+*.color9:       #c7ae95
+
+! green
+*.color2:       #95c7ae
+*.color10:      #95c7ae
+
+! yellow
+*.color3:       #aec795
+*.color11:      #aec795
+
+! blue
+*.color4:       #ae95c7
+*.color12:      #ae95c7
+
+! magenta
+*.color5:       #c795ae
+*.color13:      #c795ae
+
+! cyan
+*.color6:       #95aec7
+*.color14:      #95aec7
+
+! white
+*.color7:       #c7ccd1
+*.color15:      #f3f4f5
 
