@@ -3,9 +3,9 @@
 fg=($(xrdb -query | grep "*color7" | cut -f 2))
 c9=($(xrdb -query | grep "*color9" | cut -f 2))
 
-player_status=$(playerctl status 2> /dev/null)
+player_status=$(playerctl -p spotify status 2> /dev/null)
 if [[ $? -eq 0 ]]; then
-    metadata="%{A1:playerctl play-pause:}%{A4:playerctl next:}%{A5:playerctl previous:}$(playerctl metadata artist) - $(playerctl metadata title)%{A}%{A}%{A}"
+    metadata="%{A1:playerctl -p spotify play-pause:}%{A4:playerctl -p spotify next:}%{A5:playerctl -p spotify previous:}$(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)%{A}%{A}%{A}"
 fi
 
 # Foreground color formatting tags are optional

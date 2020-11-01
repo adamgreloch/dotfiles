@@ -44,7 +44,7 @@ bottom=true
 
 [bar/main-hdmi]
 monitor = HDMI-0
-modules-left = i3
+modules-left = i3 
 
 ;font-0 = Hack:size=10;2
 font-0 = Gohu GohuFont:size=11;1
@@ -210,7 +210,7 @@ bar-volume-empty-foreground = ${colors.color9}
 sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
 label-volume = vol %percentage%%
-label-muted = %{F#999}muted%{F-}
+label-muted = %{F#999}muted ----------%{F-}
 
 ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
 ; Default: true

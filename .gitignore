@@ -1,5 +1,6 @@
 /desktop/*
 /surface-vm/*
+**/tmux/plugins/
 !README.md
 !.gitignore
 !.gitconfig
