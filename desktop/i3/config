@@ -191,7 +191,7 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 13
+gaps inner 30
 #gaps inner 0
 gaps bottom 22
 

@@ -1,11 +1,11 @@
 # Start tmux on SSH session
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-  tmux attach-session -t ssh || tmux new-session -s ssh
+  tmux attach-session -t 0 || tmux new-session -s 0
 fi
 
 # Start tmux on every shell login
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	tmux new-session -d -s 0 || tmux new-session -t 0 \; set-option destroy-unattached
+	tmux new-session -d -s 0; tmux new-session -t 0 \; set-option destroy-unattached
 fi
 
 # Enable colors and change prompt:
@@ -15,9 +15,9 @@ PS1="%B%c%b $ "
 #RPROMPT="%F{09} %T%f"
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTSIZE=5000
+SAVEHIST=5000
+HISTFILE=~/.zhistory
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -77,6 +77,9 @@ bindkey '^e' edit-command-line
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+GPG_TTY=$(tty)
+export GPG_TTY
 
 alias ls='ls -a --color=auto'
 alias mv='mv -v'

@@ -16,7 +16,7 @@ modules-left = i3 xwindow
 modules-right = music pulseaudio cpu memory filesystem network date
 
 ;font-0 = Hack:size=10;2
-font-0 = Gohu GohuFont:size=11;1
+font-0 = Gohu GohuFont:size=11;2
 
 width = 100%
 height = 1.8%
