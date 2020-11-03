@@ -1,0 +1,15 @@
+alias ls='ls -a --color=auto'
+alias mv='mv -v'
+# alias cp='cp -v'\
+alias cp='rsync --info=progress2'
+alias rm='rm -I'
+alias v='vim'
+alias vi3='vim .config/i3/config'
+alias vpol='vim .config/polybar/config'
+alias vxr='vim .Xresources'
+alias shdn='shutdown now'
+
+if [[ -n "$SSH_CONNECTION" ]]; then
+	alias vim='vim -X'
+fi
+

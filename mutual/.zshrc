@@ -81,21 +81,6 @@ bindkey '^e' edit-command-line
 GPG_TTY=$(tty)
 export GPG_TTY
 
-alias ls='ls -a --color=auto'
-alias mv='mv -v'
-# alias cp='cp -v'\
-alias cp='rsync --info=progress2'
-alias rm='rm -I'
-alias v='vim'
-alias vi3='vim .config/i3/config'
-alias vpol='vim .config/polybar/config'
-alias vxr='vim .Xresources'
-alias shdn='shutdown now'
-
-if [[ -n "$SSH_CONNECTION" ]]; then
-	alias vim='vim -X'
-fi
-
 export PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
 MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH; export MANPATH
 INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH; export INFOPATH
@@ -107,15 +92,14 @@ export EDITOR=vim
 export VISUAL=vim
 export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"
 
-# Load zsh-syntax-highlighting; should be last.
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-#export FZF_DEFAULT_COMMAND='ag'
 export FZF_CTRL_T_COMMAND="ag"
 export FZF_COMPLETION_TRIGGER=''
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
+# Load zsh-syntax-highlighting; should be last.
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 
