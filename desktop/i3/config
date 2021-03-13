@@ -2,7 +2,7 @@
 
 exec_always --no-startup-id xmodmap -e 'remove Mod1 = Alt_R'
 exec_always --no-startup-id xmodmap -e 'add Mod3 = Alt_R'
-exec_always --no-startup-id setxkbmap pl
+exec_always --no-startup-id setxkbmap pl 
 
 set $mod Mod1
 
@@ -30,9 +30,8 @@ bindsym Shift+Print exec --no-startup-id maim -s -u $HOME/Screenshots/$(date +%Y
 bindsym Ctrl+Print exec --no-startup-id maim -u -i $(xdotool getactivewindow) $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
 
 # mappings for quick todo access
-bindsym $mod+Ctrl+t exec --no-startup-id xterm -e vim Dropbox/tasks/todo.txt
-bindsym $mod+Shift+t exec --no-startup-id google-chrome-stable https://todoist.com/app/
-
+bindsym $mod+Shift+t exec --no-startup-id xterm -e vim Dropbox/tasks/todo.txt
+bindsym $mod+Ctrl+t exec --no-startup-id google-chrome-stable https://todoist.com/app/
 
 # start ranger, chrome, spotify
 bindsym $mod+o exec --no-startup-id xterm -e ranger
@@ -48,6 +47,9 @@ bindsym $mod+d exec rofi window -show combi
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# turn the monitors off
+bindsym $mod+Pause exec --no-startup-id "sleep 1; xset dpms force standby"
 
 # media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
@@ -184,6 +186,8 @@ mode "$mode_gaps_inner" {
         bindsym minus gaps inner all minus 10
         bindsym 0     gaps inner all set 20
 
+        bindsym Shift+9  		border pixel 2
+        bindsym Shift+0  		border pixel 0
         bindsym Shift+plus  gaps inner current plus 10
         bindsym Shift+minus gaps inner current minus 10
         bindsym Shift+0     gaps inner current set 10
@@ -191,9 +195,9 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 30
+gaps inner 20
 #gaps inner 0
-gaps bottom 22
+gaps top 20
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
@@ -227,6 +231,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id hsetroot -solid $(xrdb -query | grep "*color8" | cut -f 2)
 exec --no-startup-id picom --config ~/.config/picom.conf -b
 exec --no-startup-id xset s 1200
 exec --no-startup-id xset r rate 300 25

@@ -3,4 +3,5 @@ set scroll-page-aware "true"
 set scroll-step 100
 set font "Gohu GohuFont 10"
 set guioptions s
-
+set highlight-active-color "#ffffff"
+set highlight-transparency 1

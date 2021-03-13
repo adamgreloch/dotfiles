@@ -1,8 +1,8 @@
 # dotfiles
 
-![](https://i.imgur.com/JCnV5GA.png)
+![](https://i.imgur.com/IsPPJRe.png)
 
-My i3-gaps Arch Linux dotfiles
+ My i3-gaps Arch Linux dotfiles
 
 ## Installation
 

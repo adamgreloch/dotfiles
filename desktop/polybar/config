@@ -7,19 +7,12 @@ secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 color9 = ${xrdb:color9:#222}
 
-[bar/main-dp]
-; scroll-up = i3wm-wsnext
-; scroll-down = i3wm-wsprev
-monitor = DP-0.8
-fixed-center = true
-modules-left = i3 xwindow
-modules-right = music pulseaudio cpu memory filesystem network date
-
-;font-0 = Hack:size=10;2
+[section/look]
 font-0 = Gohu GohuFont:size=11;2
 
+;line-size = 2
 width = 100%
-height = 1.8%
+height = 1.7%
 offset-x = 0%
 offset-y = 0%
 
@@ -35,44 +28,27 @@ padding-left = 1
 padding-right = 1
 
 border-size = 0
-border-color = ${colors.secondary}
+border-color = ${xrdb:color0:#222}
 
 override-redirect = true
 wm-restack=i3
 
-bottom=true
+bottom = false
+
+[bar/main-dp]
+monitor = DP-0.8
+fixed-center = true
+modules-left = i3 polywins
+modules-right = music pulseaudio cpu memory network date
+inherit = section/look
 
 [bar/main-hdmi]
 monitor = HDMI-0
 modules-left = i3 
-
-;font-0 = Hack:size=10;2
-font-0 = Gohu GohuFont:size=11;1
-
-width = 100%
-height = 1.8%
-offset-x = 0%
-offset-y = 0%
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-separator = 
-module-margin-right = 1
-module-margin-left = 1
-
-padding-left = 1
-padding-right = 1
-
-border-size = 0
-border-color = ${colors.primary}
-
-override-redirect = true
-wm-restack=i3
+modules-right=redshift
+inherit = section/look
 
 tray-position=right
-
-bottom=true
 
 [module/music]
 type = custom/script
@@ -92,100 +68,53 @@ label-maxlen = 100
 [module/i3]
 type = internal/i3
 
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
 pin-workspaces = true
-
-; This will split the workspace name on ':'
-; Default: false
 strip-wsnumbers = false
-
 label-focused-foreground = ${colors.foreground}
 label-unfocused-foreground = ${colors.color9}
-
-; Sort the workspaces by index instead of the default
-; sorting that groups the workspaces by output
-; Default: false
 index-sort = true
-
-; Create click handler used to focus workspace
-; Default: true
 enable-click = false
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
 enable-scroll = false
-
-; Wrap around when reaching the first/last workspace
-; Default: true
 wrapping-scroll = false
-
-; Set the scroll cycle direction
-; Default: true
 reverse-scroll = false
-
-; Use fuzzy (partial) matching on labels when assigning
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces
-; containing 'code' in the label
-; Default: false
 fuzzy-match = true
+
+[module/polywins]
+type = custom/script
+exec = ~/.config/polybar/polywins.sh 2>/dev/null
+case="lower"
+active_text_color = ${colors.foreground}
+inactive_text_color = ${colors.color9}
+format = <label>
+label = %output%
+label-padding = 1
+tail = true
+interval = 1
 
 [module/network]
 type = internal/network
 
 interface = enp6s0
-
 interval = 3.0
-
 spacing = 1
-
-label-connected = %downspeed% %upspeed%
-
-udspeed-minwidth = 2
-
-label-disconnected = WE ARE FUCKED
+label-connected = %local_ip%
+udspeed-minwidth = 1
+label-disconnected = NOT GOOD
 label-disconnected-foreground = #E80424
-
 accumulate-stats = true
-
 unknown-as-up = true
 
 [module/cpu]
 type = internal/cpu
 
 interval = 3
-
 label = cpu %percentage%%
 
 [module/memory]
 type = internal/memory
 
 interval = 3
-
 label = ram %percentage_used%%
-
-[module/filesystem]
-type = internal/fs
-
-mount-0 = /
-mount-1 = /home
-mount-2 = /media
-mount-3 = /mnt
-
-interval = 10
-
-fixed-values = true
-
-label-mounted = %mountpoint% %percentage_used%% 
-label-unmounted = %mountpoint%
-label-unmounted-foreground = ${colors.color9}
-
-spacing = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -193,31 +122,21 @@ type = internal/pulseaudio
 format-volume = <label-volume> <bar-volume>
 
 bar-volume-width = 10
-;bar-volume-foreground = ${colors.color7}
 
 bar-volume-gradient = false
 bar-volume-indicator = |
-;bar-volume-indicator-font = 0
 bar-volume-fill = |
-;bar-volume-fill-font = 0
 bar-volume-fill-foreground = ${colors.foreground}
 bar-volume-empty = |
-;bar-volume-empty-font = 0
 bar-volume-empty-foreground = ${colors.color9}
 
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
 sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
 label-volume = vol %percentage%%
 label-muted = %{F#999}muted ----------%{F-}
 
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
 use-ui-max = false
 
-; Interval for volume increase/decrease (in percent points)
-; Default: 5
 interval = 5
 
 # vim:ft=dosini
