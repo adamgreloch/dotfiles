@@ -2,8 +2,6 @@
 
 ![](https://i.imgur.com/IsPPJRe.png)
 
- My i3-gaps Arch Linux dotfiles
-
 ## Installation
 
 Make `create-symlinks.sh` executable and run it while passing a desired config
