@@ -97,9 +97,9 @@ type = internal/network
 interface = enp6s0
 interval = 3.0
 spacing = 1
-label-connected = %local_ip%
+label-connected = %ifname%
 udspeed-minwidth = 1
-label-disconnected = NOT GOOD
+label-disconnected = disconnected
 label-disconnected-foreground = #E80424
 accumulate-stats = true
 unknown-as-up = true
@@ -130,7 +130,7 @@ bar-volume-fill-foreground = ${colors.foreground}
 bar-volume-empty = |
 bar-volume-empty-foreground = ${colors.color9}
 
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
+sink = alsa_output.pci-0000_00_0f.3.analog-stereo
 
 label-volume = vol %percentage%%
 label-muted = %{F#999}muted ----------%{F-}

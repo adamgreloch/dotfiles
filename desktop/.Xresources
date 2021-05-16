@@ -3,9 +3,9 @@ XTerm.vt100.locale: true
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.saveLines: 4096
 xterm*renderFont: true
-!xterm*faceName: MesloLGM Nerd Font Mono:size=11
+!xterm*faceName: MesloLGM Nerd Font Mono:size=14
 !xterm*faceName: Hack:size=11
-xterm*faceName: Ubuntu Mono:size=14
+xterm*faceName: Ubuntu Mono:size=16
 !xterm*font: -Gohu-Gohufont-Medium-R-Normal--14-100-100-100-C-80-ISO10646-1
 xterm*backarrowKey: false
 xterm*BorderWidth: 8
