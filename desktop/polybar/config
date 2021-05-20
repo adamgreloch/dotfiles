@@ -33,7 +33,7 @@ border-color = ${xrdb:color0:#222}
 override-redirect = true
 wm-restack=i3
 
-bottom = false
+bottom = true
 
 [bar/main-dp]
 monitor = DP-0.8
