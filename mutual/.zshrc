@@ -87,7 +87,6 @@ INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 RANGER_LOAD_DEFAULT_RC=FALCE:$RANGER_LOAD_DEFAULT_RC; export RANGER_LOAD_DEFAULT_RC
 
 export PATH="/home/adam/.local/bin:$PATH"
-export TERMINAL=xterm-256color
 export EDITOR=vim
 export VISUAL=vim
 export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"

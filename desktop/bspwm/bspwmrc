@@ -11,9 +11,10 @@ bspc monitor DP-0.8 -d 1 2 3
 bspc monitor HDMI-0 -d 4 5 6
 
 _ window_gap 20
-_ border_width 16
+_ border_width 3
 _ window_gap 12
-_ top_padding 43
+_ bottom_padding 40
+_ top_padding 40
 
 _ normal_border_color       '#282828'
 _ active_border_color       '#282828'
@@ -26,7 +27,7 @@ _ gapless_monocle      true
 _ focus_follows_pointer    true
 
 $HOME/.config/polybar/launch.sh
-# s $HOME/.config/bspwm/borders
+#s $HOME/.config/bspwm/borders
 picom --config ~/.config/picom.conf -b
 xset dpms 300
 xset r rate 300 25

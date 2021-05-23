@@ -162,18 +162,19 @@ set_from_resource $c8 i3wm.color8 #f0f0f0
 set_from_resource $c2 i3wm.color2 #f0f0f0
 set_from_resource $c3 i3wm.color3 #f0f0f0
 set_from_resource $c12 i3wm.color12 #f0f0f0
+set $brd #282828
 
 # class                 border  backgr. text indicator child_border
-client.focused          $c12     $bg     $fg  $c12       $c12
-client.focused_inactive $bg     $bg     $fg  $c8       $c8
-client.unfocused        $bg     $bg     $fg  $c8       $c8
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.focused          $brd     $bg     $fg  $brd      $brd
+client.focused_inactive $brd     $bg     $fg  $brd      $brd
+client.unfocused        $brd     $bg     $fg  $brd      $brd
+client.urgent           $brd     $bg     $fg  $brd      $brd
+client.placeholder      $brd     $bg     $fg  $brd      $brd
 
 client.background       $bg
 
 # disable window titlebars (i3-gaps)
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 4
 #for_window [class=".*"] border pixel 0
 
 # set i3-gaps
@@ -195,9 +196,10 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 20
+gaps inner 16
 #gaps inner 0
-gaps bottom 20
+gaps top 40
+gaps bottom 40
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
