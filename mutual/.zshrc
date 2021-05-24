@@ -10,9 +10,7 @@ fi
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-#PS1="%B%~%b $ "
 PS1="%B%c%b $ "
-#RPROMPT="%F{09} %T%f"
 
 # History in cache directory:
 HISTSIZE=5000
@@ -58,18 +56,6 @@ zle -N zle-line-init
 echo -ne '\e[2 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[2 q' ;} # Use beam shape cursor for each new prompt.
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' 'lfcd\n'
-
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -78,26 +64,27 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
+# Run GPG agent
 GPG_TTY=$(tty)
 export GPG_TTY
 
-export PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-linux"
-MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH; export MANPATH
-INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+# Add texlive to PATH
+export PATH="$PATH:/usr/local/texlive/2021/bin/x86_64-linux"
+MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 RANGER_LOAD_DEFAULT_RC=FALCE:$RANGER_LOAD_DEFAULT_RC; export RANGER_LOAD_DEFAULT_RC
 
+# Other PATH settings
 export PATH="/home/adam/.local/bin:$PATH"
 export EDITOR=vim
 export VISUAL=vim
 export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"
 
+# Load zsh plugins
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 export FZF_CTRL_T_COMMAND="ag"
 export FZF_COMPLETION_TRIGGER=''
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
-
-# Load zsh-syntax-highlighting; should be last.
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 

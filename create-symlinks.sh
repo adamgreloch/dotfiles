@@ -8,7 +8,7 @@ fi
 read -p "WARNING: This script will overwrite all important dotfiles with symlinks pointing to this repo. Proceed? [Y/n] " -r
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	ln -sfr $1/ ~/.configc
+	ln -sfr $1/ ~/.config
 	ln -sfr $1/.Xresources ~/.Xresources
 	ln -sfr $1/.xinitrc ~/.xinitrc
 	ln -sfr $1/.xprofile ~/.xprofile

@@ -11,7 +11,9 @@
 !.xprofile
 !.Xresources
 !picom.conf
+!**/aliasrc
 !**/redshift
+!**/tmux
 !**/ranger
 !**/rofi
 !**/i3
