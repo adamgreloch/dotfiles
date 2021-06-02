@@ -35,7 +35,6 @@ bindsym $mod+Ctrl+t exec --no-startup-id google-chrome-stable https://todoist.co
 
 # start ranger, chrome, spotify
 bindsym $mod+o exec --no-startup-id xterm -e ranger
-bindsym $mod+Ctrl+c exec --no-startup-id google-chrome-stable
 bindsym $mod+Ctrl+f exec --no-startup-id firefox
 bindsym $mod+Ctrl+s exec --no-startup-id spotify
 
@@ -162,7 +161,7 @@ set_from_resource $c8 i3wm.color8 #f0f0f0
 set_from_resource $c2 i3wm.color2 #f0f0f0
 set_from_resource $c3 i3wm.color3 #f0f0f0
 set_from_resource $c12 i3wm.color12 #f0f0f0
-set $brd #282828
+set_from_resource $brd i3wm.color8 #282828
 
 # class                 border  backgr. text indicator child_border
 client.focused          $brd     $bg     $fg  $brd      $brd
