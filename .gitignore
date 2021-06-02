@@ -1,16 +1,21 @@
 /desktop/*
 /surface-vm/*
+/pi/*
 **/tmux/plugins/
+**/syncthing
 !README.md
 !.gitignore
+!.tmux.conf
 !.gitconfig
 !.bash_profile
 !.bashrc
 !.zshrc
+!rc.local
 !.xinitrc
 !.xprofile
 !.Xresources
 !picom.conf
+!drzemka.py
 !**/aliasrc
 !**/redshift
 !**/tmux
@@ -22,4 +27,6 @@
 !**/polybar
 !**/zathura
 !**/fontconfig
+!**/etc
+!**/.config
 
