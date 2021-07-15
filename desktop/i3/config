@@ -31,11 +31,12 @@ bindsym Ctrl+Print exec --no-startup-id maim -u -i $(xdotool getactivewindow) $H
 
 # mappings for quick todo access
 bindsym $mod+Shift+t exec --no-startup-id xterm -e vim Dropbox/tasks/todo.txt
-bindsym $mod+Ctrl+t exec --no-startup-id google-chrome-stable https://todoist.com/app/
+bindsym $mod+Ctrl+t exec --no-startup-id firefox https://ticktick.com/webapp/
 
 # start ranger, chrome, spotify
 bindsym $mod+o exec --no-startup-id xterm -e ranger
 bindsym $mod+Ctrl+f exec --no-startup-id firefox
+bindsym $mod+Ctrl+m exec --no-startup-id thunderbird
 bindsym $mod+Ctrl+s exec --no-startup-id spotify
 
 # start rofi
@@ -156,7 +157,7 @@ bindsym $mod+Ctrl+l exec --no-startup-id xautolock -locknow
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $bg i3wm.background #f0f0f0
 set_from_resource $c8 i3wm.color8 #f0f0f0
 set_from_resource $c2 i3wm.color2 #f0f0f0
 set_from_resource $c3 i3wm.color3 #f0f0f0
@@ -173,7 +174,7 @@ client.placeholder      $brd     $bg     $fg  $brd      $brd
 client.background       $bg
 
 # disable window titlebars (i3-gaps)
-for_window [class=".*"] border pixel 4
+for_window [class=".*"] border pixel 2
 #for_window [class=".*"] border pixel 0
 
 # set i3-gaps
@@ -197,8 +198,9 @@ mode "$mode_gaps_inner" {
 
 gaps inner 16
 #gaps inner 0
-gaps top 40
-gaps bottom 40
+#gaps top 40
+#gaps bottom 40
+gaps bottom 25
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
@@ -233,10 +235,11 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id hsetroot -solid $(xrdb -query | grep "*color8" | cut -f 2)
+exec_always --no-startup-id hsetroot -solid \#21272b
+#exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id picom --config ~/.config/picom.conf -b
 exec --no-startup-id xset s 1200
 exec_always --no-startup-id xset r rate 300 25
-exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift
 exec --no-startup-id unclutter
