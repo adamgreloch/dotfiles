@@ -4,10 +4,10 @@ XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.saveLines: 4096
 xterm*renderFont: true
 !xterm*faceName: Ubuntu Mono:size=16
-xterm*faceName: JetBrains Mono:size=14
+xterm*faceName: JetBrains Mono:size=12
 !xterm*font: -Gohu-Gohufont-Medium-R-Normal--14-100-100-100-C-80-ISO10646-1
 xterm*backarrowKey: false
-xterm*BorderWidth: 7
+xterm*BorderWidth: 5
 xterm*cursorBlink: false
 xterm.vt100.blink: false
 xterm*vt100.scaleHeight: 0.7
@@ -17,41 +17,3 @@ Super <Key> minus: smaller-vt-font() \n\
 Super <Key> plus: larger-vt-font() \n\
 Super <Key> KP_Subtract: smaller-vt-font() \n\
 Super <Key> KP_Add: larger-vt-font() \n
-
-! special
-*.foreground:   #d8caac
-*.background:   #2f383e
-*.cursorColor:  #d8caac
-*.borderColor:  #2f383e
-
-! black
-*.color0:       #868d80
-*.color8:       #868d80
-
-! red
-*.color1:       #e68183
-*.color9:       #e68183
-
-! green
-*.color2:       #a7c080
-*.color10:      #a7c080
-
-! yellow
-*.color3:       #d9bb80
-*.color11:      #d9bb80
-
-! blue
-*.color4:       #89beba
-*.color12:      #89beba
-
-! magenta
-*.color5:       #d3a0bc
-*.color13:      #d3a0bc
-
-! cyan
-*.color6:       #87c095
-*.color14:      #87c095
-
-! white
-*.color7:       #d8caac
-*.color15:      #d8caac

@@ -147,6 +147,12 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# Dunst controls
+bindsym Ctrl+space exec --no-startup-id dunstctl close
+bindsym Ctrl+Shift+space exec --no-startup-id dunstctl close
+bindsym Ctrl+Shift+comma exec --no-startup-id dunstctl history-pop
+bindsym Ctrl+Shift+period exec --no-startup-id dunstctl context
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -174,7 +180,7 @@ client.placeholder      $brd     $bg     $fg  $brd      $brd
 client.background       $bg
 
 # disable window titlebars (i3-gaps)
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 #for_window [class=".*"] border pixel 0
 
 # set i3-gaps
@@ -196,11 +202,11 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 16
+gaps inner 14
 #gaps inner 0
 #gaps top 40
 #gaps bottom 40
-gaps bottom 25
+gaps top 18
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
@@ -234,13 +240,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 #exec_always --no-startup-id hsetroot -solid $(xrdb -query | grep "*color8" | cut -f 2)
-exec_always --no-startup-id hsetroot -solid \#21272b
-#exec --no-startup-id $HOME/.fehbg
+#exec_always --no-startup-id hsetroot -solid \#21272b
+exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id picom --config ~/.config/picom.conf -b
 exec --no-startup-id xset s 1200
 exec_always --no-startup-id xset r rate 300 25
-exec --no-startup-id dropbox start
 exec --no-startup-id redshift
 exec --no-startup-id unclutter
 

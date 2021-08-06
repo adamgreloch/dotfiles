@@ -14,10 +14,10 @@ width = 100%
 offset-x = 0%
 offset-y = 0%
 
-font-0 = Gohu GohuFont:size=11;1
+font-0 = Gohu GohuFont:size=11;2
 
 ;line-size = 2
-height = 1.8%
+height = 1.6%
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -27,7 +27,7 @@ separator =
 module-margin-right = 1
 module-margin-left = 1
 
-padding-left = 1
+;padding-left = 1
 padding-right = 1
 
 border-size = 0
@@ -36,7 +36,7 @@ border-color = ${xrdb:color12:#222}
 override-redirect = true
 wm-restack=i3
 
-bottom = true
+bottom = false
 
 [bar/dp-left]
 monitor = DP-0.8
@@ -71,12 +71,25 @@ label-maxlen = 100
 [module/i3]
 type = internal/i3
 
+label-focused = %name%
+label-unfocused = %name%
+label-visible = %name%
+label-urgent = %name%
+
+format = <label-state>
+
+label-focused-padding = 2
+label-unfocused-padding = 2
+label-visible-padding = 2
+label-urgent-padding = 2
+
 pin-workspaces = true
 strip-wsnumbers = false
 label-focused-foreground = ${colors.foreground}
-label-unfocused-foreground = ${colors.color0}
+label-focused-background = ${colors.color12}
+label-unfocused-foreground = ${colors.color9}
 index-sort = true
-enable-click = false
+enable-click = true
 enable-scroll = false
 wrapping-scroll = false
 reverse-scroll = false
@@ -87,7 +100,7 @@ type = custom/script
 exec = ~/.config/polybar/polywins.sh 2>/dev/null
 case="lower"
 active_text_color = ${colors.foreground}
-inactive_text_color = ${colors.color0}
+inactive_text_color = ${colors.color9}
 format = <label>
 label = %output%
 label-padding = 1
@@ -131,7 +144,7 @@ bar-volume-indicator = |
 bar-volume-fill = |
 bar-volume-fill-foreground = ${colors.foreground}
 bar-volume-empty = |
-bar-volume-empty-foreground = ${colors.color0}
+bar-volume-empty-foreground = ${colors.color9}
 
 sink = alsa_output.pci-0000_00_0f.3.analog-stereo
 
