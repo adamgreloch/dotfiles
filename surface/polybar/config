@@ -1,0 +1,161 @@
+[colors]
+background = ${xrdb:background:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+color0 = ${xrdb:color0:#222}
+color9 = ${xrdb:color9:#222}
+color12 = ${xrdb:color12:#222}
+
+[section/look]
+width = 100%
+offset-x = 0%
+offset-y = 0%
+
+font-0 = "JetBrains Mono:size=16;4"
+font-1 = "JetBrains Mono:weight=bold:size=16;4"
+
+;line-size = 2
+height = 2%
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+;background = #AA282828
+;foreground = #ebdbb2
+separator = 
+module-margin-right = 1
+module-margin-left = 1
+
+;padding-left = 1
+padding-right = 1
+
+border-size = 0
+border-color = ${xrdb:color12:#222}
+
+override-redirect = true
+wm-restack=i3
+
+bottom = true
+
+[bar/main]
+fixed-center = true
+modules-left = i3 battery xwindow
+modules-right = music pulseaudio cpu memory network date
+inherit = section/look
+tray-position=right
+
+[module/music]
+type = custom/script
+interval = 1
+label = %output%
+exec = ~/.config/polybar/music
+
+[module/date]
+type = internal/date
+date = %H:%M - %a, %d.%m.%Y%
+
+[module/xwindow]
+type = internal/xwindow
+label = %{T2} %title% %{T-}
+label-maxlen = 100
+
+[module/i3]
+type = internal/i3
+
+label-focused = %name%
+label-unfocused = %name%
+label-visible = %name%
+label-urgent = %name%
+
+format = <label-state>
+
+label-focused-padding = 2
+label-unfocused-padding = 2
+label-visible-padding = 2
+label-urgent-padding = 2
+
+pin-workspaces = true
+strip-wsnumbers = false
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.color12}
+label-unfocused-foreground = ${colors.color9}
+index-sort = true
+enable-click = true
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+[module/polywins]
+type = custom/script
+exec = ~/.config/polybar/polywins.sh 2>/dev/null
+case="lower"
+active_text_color = ${colors.foreground}
+inactive_text_color = ${colors.color9}
+format = <label>
+label = %output%
+label-padding = 1
+tail = true
+interval = 1
+
+[module/network]
+type = internal/network
+
+interface = wlp1s0
+interval = 3.0
+spacing = 1
+label-connected = %essid%: %signal%%
+udspeed-minwidth = 1
+label-disconnected = disconnected
+label-disconnected-foreground = #E80424
+accumulate-stats = true
+unknown-as-up = true
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 100
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1
+adapter = ADP1
+
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+
+label-charging = %percentage%% (charging %consumption% W)
+label-discharging = %percentage%% (%consumption% W)
+label-full = %percentage%% (%consumption% W)
+
+poll-interval = 5
+
+[module/cpu]
+type = internal/cpu
+
+interval = 3
+label = cpu %percentage%%
+
+[module/memory]
+type = internal/memory
+
+interval = 3
+label = ram %percentage_used%%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_00_0f.3.analog-stereo
+
+label-volume = vol %percentage%%
+label-muted = %{F#999}muted%{F-}
+
+use-ui-max = false
+
+interval = 5
+
+# vim:ft=dosini
+

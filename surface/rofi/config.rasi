@@ -1,0 +1,7 @@
+configuration {
+	modi: "combi";
+	font: "JetBrains Mono 20";
+	theme: "~/.cache/wal/colors-rofi-dark";
+	location: 0;
+}
+
