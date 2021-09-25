@@ -30,8 +30,7 @@ bindsym Shift+Print exec --no-startup-id maim -s -u $HOME/Screenshots/$(date +%Y
 bindsym Ctrl+Print exec --no-startup-id maim -u -i $(xdotool getactivewindow) $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
 
 # mappings for quick todo access
-bindsym $mod+Shift+t exec --no-startup-id xterm -e vim Dropbox/tasks/todo.txt
-bindsym $mod+Ctrl+t exec --no-startup-id firefox https://ticktick.com/webapp/
+bindsym $mod+Ctrl+t exec --no-startup-id firefox https://todoist.com/app/
 
 # start ranger, chrome, spotify
 bindsym $mod+o exec --no-startup-id xterm -e ranger

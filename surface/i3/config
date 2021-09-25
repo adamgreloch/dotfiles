@@ -30,8 +30,7 @@ bindsym Shift+Print exec --no-startup-id maim -s -u $HOME/Screenshots/$(date +%Y
 bindsym Ctrl+Print exec --no-startup-id maim -u -i $(xdotool getactivewindow) $HOME/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
 
 # mappings for quick todo access
-bindsym $mod+Shift+t exec --no-startup-id urxvt -e vim Dropbox/tasks/todo.txt
-bindsym $mod+Ctrl+t exec --no-startup-id firefox https://ticktick.com/webapp/
+bindsym $mod+Ctrl+t exec --no-startup-id firefox https://todoist.com/app/
 
 # start ranger, chrome, spotify
 bindsym $mod+o exec --no-startup-id urxvt -e ranger
@@ -41,7 +40,6 @@ bindsym $mod+Ctrl+s exec --no-startup-id flatpak run com.spotify.Client
 
 # start rofi
 bindsym $mod+d exec rofi window -show combi
-#bindsym $mod+d exec rofi window#drun#ssh -theme "~/.cache/wal/colors-rofi-dark" -font "Gohu GohuFont 10" -show combi -width 40
 
 # PulseAudio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -49,8 +47,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Brightness controls
-bindsym XF86MonBrightnessDown exec --no-startup-id brightlight -d 1000
-bindsym XF86MonBrightnessUp exec --no-startup-id brightlight -i 1000
+bindsym XF86MonBrightnessDown exec --no-startup-id brightlight -p -d 10
+bindsym XF86MonBrightnessUp exec --no-startup-id brightlight -p -i 10
 
 # turn the monitors off
 bindsym $mod+Pause exec --no-startup-id "sleep 1; xset dpms force standby"
@@ -206,7 +204,7 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 14
+gaps inner 10
 gaps bottom 18
 
 # bindings for quick horizontal resizing

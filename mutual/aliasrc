@@ -3,6 +3,7 @@ alias mv='mv -v'
 # alias cp='cp -v'\
 alias cp='rsync --info=progress2'
 alias rm='rm -I'
+alias vim='gvim -v'
 alias v='vim'
 alias vi3='vim ~/.config/i3/config'
 alias vpol='vim ~/.config/polybar/config'
