@@ -88,3 +88,5 @@ export FZF_COMPLETION_TRIGGER=''
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
+# opam configuration
+[[ ! -r /home/adam/.opam/opam-init/init.zsh ]] || source /home/adam/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

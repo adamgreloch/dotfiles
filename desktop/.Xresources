@@ -1,19 +1,29 @@
-XTerm.termName: xterm-256color
-XTerm.vt100.locale: true
-XTerm.vt100.metaSendsEscape: true
-XTerm.vt100.saveLines: 4096
-xterm*renderFont: true
-!xterm*faceName: Ubuntu Mono:size=16
-xterm*faceName: JetBrains Mono:size=12
-!xterm*font: -Gohu-Gohufont-Medium-R-Normal--14-100-100-100-C-80-ISO10646-1
-xterm*backarrowKey: false
-xterm*BorderWidth: 5
-xterm*cursorBlink: false
-xterm.vt100.blink: false
-xterm*vt100.scaleHeight: 0.7
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 95
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
 
 XTerm.VT100.translations: #override \
 Super <Key> minus: smaller-vt-font() \n\
 Super <Key> plus: larger-vt-font() \n\
 Super <Key> KP_Subtract: smaller-vt-font() \n\
 Super <Key> KP_Add: larger-vt-font() \n
+
+URxvt.font:xft:JetBrains Mono:size=12
+URxvt.internalBorder: 10
+URxvt.fading: 0
+URxvt.scrollBar: false
+URxvt.letterSpace: -1
+URxvt.iso14755: true
+URxvt.iso14755_52: false
+
+urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
