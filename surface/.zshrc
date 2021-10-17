@@ -84,3 +84,5 @@ export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"
 export FZF_COMPLETION_TRIGGER=''
 source /usr/share/fzf/shell/key-bindings.zsh
 
+# opam configuration
+test -r /home/adam/.opam/opam-init/init.zsh && . /home/adam/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

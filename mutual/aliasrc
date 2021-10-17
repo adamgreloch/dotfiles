@@ -1,9 +1,12 @@
 alias ls='ls -a --color=auto'
 alias mv='mv -v'
-# alias cp='cp -v'\
 alias cp='rsync --info=progress2'
 alias rm='rm -I'
-alias vim='gvim -v'
+
+if command  -v gvim &> /dev/null; then
+    alias vim='gvim -v'
+fi
+
 alias v='vim'
 alias vi3='vim ~/.config/i3/config'
 alias vpol='vim ~/.config/polybar/config'
@@ -12,7 +15,11 @@ alias shdn='shutdown now'
 alias z='zathura'
 alias rg='ranger'
 
-if [[ -n "$SSH_CONNECTION" ]]; then
-	alias vim='vim -X'
-fi
+alias nd='cd $NOTESDIR'
+alias sem='cd $SEM'
+alias plan='feh ~/Pudlo/studia/plan.gif'
+
+# if [[ -n "$SSH_CONNECTION" ]]; then
+# 	alias vim='vim -X'
+# fi
 

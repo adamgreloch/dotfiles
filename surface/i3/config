@@ -47,8 +47,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Brightness controls
-bindsym XF86MonBrightnessDown exec --no-startup-id brightlight -p -d 10
-bindsym XF86MonBrightnessUp exec --no-startup-id brightlight -p -i 10
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id brightlight -p -w 1
+bindsym XF86MonBrightnessDown exec --no-startup-id brightlight -p -d 5
+bindsym XF86MonBrightnessUp exec --no-startup-id brightlight -p -i 5
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id brightlight -p -w 100
 
 # turn the monitors off
 bindsym $mod+Pause exec --no-startup-id "sleep 1; xset dpms force standby"
@@ -119,10 +121,10 @@ set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws6 "6: am"
+set $ws7 "7: gal"
+set $ws8 "8: pmat"
+set $ws9 "9: wpf"
 set $ws10 "10"
 
 # switch to workspace
@@ -182,7 +184,7 @@ client.placeholder      $brd     $bg     $fg  $brd      $brd
 client.background       $bg
 
 # disable window titlebars (i3-gaps)
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 #for_window [class=".*"] border pixel 0
 
 # set i3-gaps
@@ -204,8 +206,9 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 10
-gaps bottom 18
+gaps inner 8
+#gaps inner 0
+gaps bottom 17
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
@@ -242,7 +245,7 @@ exec_always --no-startup-id light-locker
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 #exec_always --no-startup-id hsetroot -solid $(xrdb -query | grep "*color8" | cut -f 2)
-#exec_always --no-startup-id hsetroot -solid \#21272b
+exec_always --no-startup-id hsetroot -solid \#21272b
 exec --no-startup-id wal -R
 exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id picom --config ~/.config/picom.conf -b

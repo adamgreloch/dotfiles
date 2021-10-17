@@ -14,11 +14,11 @@ width = 100%
 offset-x = 0%
 offset-y = 0%
 
-font-0 = "JetBrains Mono:size=16;4"
-font-1 = "JetBrains Mono:weight=bold:size=16;4"
+font-0 = "JetBrains Mono:size=14;4"
+font-1 = "JetBrains Mono:weight=bold:size=14;4"
 
-;line-size = 2
-height = 2%
+line-size = 2
+height = 1.7%
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -54,7 +54,7 @@ exec = ~/.config/polybar/music
 
 [module/date]
 type = internal/date
-date = %H:%M - %a, %d.%m.%Y%
+date = %H:%M | %d-%m-%y%
 
 [module/xwindow]
 type = internal/xwindow
@@ -79,7 +79,7 @@ label-urgent-padding = 2
 pin-workspaces = true
 strip-wsnumbers = false
 label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.color12}
+label-focused-underline = ${colors.color9}
 label-unfocused-foreground = ${colors.color9}
 index-sort = true
 enable-click = true
@@ -87,18 +87,6 @@ enable-scroll = false
 wrapping-scroll = false
 reverse-scroll = false
 fuzzy-match = true
-
-[module/polywins]
-type = custom/script
-exec = ~/.config/polybar/polywins.sh 2>/dev/null
-case="lower"
-active_text_color = ${colors.foreground}
-inactive_text_color = ${colors.color9}
-format = <label>
-label = %output%
-label-padding = 1
-tail = true
-interval = 1
 
 [module/network]
 type = internal/network
@@ -127,9 +115,9 @@ adapter = ADP1
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 
-label-charging = %percentage%% (charging %consumption% W)
-label-discharging = %percentage%% (%consumption% W)
-label-full = %percentage%% (%consumption% W)
+label-charging = %percentage%%+
+label-discharging = %percentage%%
+label-full = %percentage%%
 
 poll-interval = 5
 

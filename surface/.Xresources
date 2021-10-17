@@ -6,10 +6,11 @@ Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-URxvt.font:xft:JetBrains Mono:size=13
+URxvt.font:xft:JetBrains Mono:size=11
 URxvt.internalBorder: 20
 URxvt.fading: 0
 URxvt.scrollBar: false
+URxvt.letterSpace: -1
 
 urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
 

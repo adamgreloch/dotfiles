@@ -7,3 +7,6 @@
 export GPG_TTY=$(tty)
 export PATH="$PATH:/home/adam/.local/bin"
 
+export NOTESDIR="/home/adam/Pudlo/notatki"
+export SEM="/home/adam/Pudlo/studia/I11"
+
