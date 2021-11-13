@@ -24,7 +24,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)  # Include hidden files.
 
-# ----- vi mode -----
+# vi mode
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -59,8 +59,8 @@ preexec() { echo -ne '\e[2 q' ;} # Use beam shape cursor for each new prompt.
 
 function cd_with_fzf {
     cd $HOME
-    cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
-    clear && echo "$PWD" && tree -L 1
+    cd "$(fd -t d | fzf --preview="tree -C -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
+    clear && echo "$PWD" && tree -C -L 1
     zle reset-prompt
 }
 zle -N cd_with_fzf

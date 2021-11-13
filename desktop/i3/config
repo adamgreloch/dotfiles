@@ -202,11 +202,11 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 20
-#gaps inner 0
+#gaps inner 20
+gaps inner 0
 #gaps top 40
 #gaps bottom 40
-gaps bottom 16
+gaps bottom 17
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
@@ -243,12 +243,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 #exec_always --no-startup-id hsetroot -solid $(xrdb -query | grep "*color8" | cut -f 2)
 #exec_always --no-startup-id hsetroot -solid \#21272b
-exec_always --no-startup-id hsetroot -solid \#141414
+#exec_always --no-startup-id hsetroot -solid \#141414
 exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id picom --config ~/.config/picom.conf -b
 exec --no-startup-id xset s 1200
-exec_always --no-startup-id xset r rate 300 25
+exec_always --no-startup-id xset r rate 200 35
 exec --no-startup-id redshift
 exec --no-startup-id unclutter
-
 
