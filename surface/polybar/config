@@ -14,17 +14,18 @@ width = 100%
 offset-x = 0%
 offset-y = 0%
 
-font-0 = "JetBrains Mono:size=14;4"
-font-1 = "JetBrains Mono:weight=bold:size=14;4"
+font-0 = "JetBrains Mono:style=Bold:size=14;6"
+font-1 = "JetBrains Mono:style=Bold:size=14;6"
 
-line-size = 2
-height = 1.7%
+line-size = 3
+height = 1.65%
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 ;background = #AA282828
 ;foreground = #ebdbb2
-separator = 
+separator = |
+separator-foreground = ${colors.color9}
 module-margin-right = 1
 module-margin-left = 1
 
@@ -41,20 +42,18 @@ bottom = true
 
 [bar/main]
 fixed-center = true
-modules-left = i3 battery xwindow
-modules-right = music pulseaudio cpu memory network date
+modules-left = i3
+modules-right = pulseaudio battery cpu memory network time date
 inherit = section/look
 tray-position=right
 
-[module/music]
-type = custom/script
-interval = 1
-label = %output%
-exec = ~/.config/polybar/music
+[module/time]
+type = internal/date
+date = %H:%M
 
 [module/date]
 type = internal/date
-date = %H:%M | %d-%m-%y%
+date = %d-%m-%y%
 
 [module/xwindow]
 type = internal/xwindow
@@ -79,7 +78,7 @@ label-urgent-padding = 2
 pin-workspaces = true
 strip-wsnumbers = false
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = ${colors.color9}
+#label-focused-underline = ${colors.color9}
 label-unfocused-foreground = ${colors.color9}
 index-sort = true
 enable-click = true
@@ -94,10 +93,10 @@ type = internal/network
 interface = wlp1s0
 interval = 3.0
 spacing = 1
-label-connected = %essid%: %signal%%
+label-connected = %essid% %signal%%
 udspeed-minwidth = 1
 label-disconnected = disconnected
-label-disconnected-foreground = #E80424
+label-disconnected-foreground = %{F#999}disconnected%{F-}
 accumulate-stats = true
 unknown-as-up = true
 
@@ -115,9 +114,10 @@ adapter = ADP1
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 
+time-format = %H:%M
 label-charging = %percentage%%+
-label-discharging = %percentage%%
-label-full = %percentage%%
+label-discharging = %percentage%% %consumption%W %time%h left
+label-full = %percentage%% %consumption%W
 
 poll-interval = 5
 

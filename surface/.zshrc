@@ -24,7 +24,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)  # Include hidden files.
 
-# vi mode
+# ----- vi mode -----
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -48,13 +48,30 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
-zle-line-init() {
+
+function zle-line-init {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[2 q"
 }
 zle -N zle-line-init
 echo -ne '\e[2 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[2 q' ;} # Use beam shape cursor for each new prompt.
+
+function cd_with_fzf {
+    cd $HOME
+    cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
+    clear && echo "$PWD" && tree -L 1
+    zle reset-prompt
+}
+zle -N cd_with_fzf
+bindkey '^o' cd_with_fzf
+
+function cd_up {
+    cd .. && print "" && ls
+    zle reset-prompt
+}
+zle -N cd_up
+bindkey '^u' cd_up
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -68,21 +85,23 @@ bindkey '^e' edit-command-line
 GPG_TTY=$(tty)
 export GPG_TTY
 
+# PATH settings
+export PATH="/home/adam/.local/bin:$PATH"
+export EDITOR=vim
+export VISUAL=vim
+export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"
+
 # Add texlive to PATH
 export PATH="$PATH:/usr/local/texlive/2021/bin/x86_64-linux"
 MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH; export MANPATH
 INFOPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 RANGER_LOAD_DEFAULT_RC=FALCE:$RANGER_LOAD_DEFAULT_RC; export RANGER_LOAD_DEFAULT_RC
 
-# Other PATH settings
-export PATH="/home/adam/.local/bin:$PATH"
-export EDITOR=vim
-export VISUAL=vim
-export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"
-
-# Load zsh plugins
+# FZF variables
+export FZF_DEFAULT_COMMAND="fd -H"
 export FZF_COMPLETION_TRIGGER=''
-source /usr/share/fzf/shell/key-bindings.zsh
 
 # opam configuration
 test -r /home/adam/.opam/opam-init/init.zsh && . /home/adam/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+source /usr/share/fzf/shell/key-bindings.zsh

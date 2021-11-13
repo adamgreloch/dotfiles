@@ -165,7 +165,6 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Ctrl+l exec --no-startup-id xautolock -locknow
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.background #f0f0f0
 set_from_resource $c8 i3wm.color8 #f0f0f0
@@ -173,9 +172,10 @@ set_from_resource $c2 i3wm.color2 #f0f0f0
 set_from_resource $c3 i3wm.color3 #f0f0f0
 set_from_resource $c12 i3wm.color12 #f0f0f0
 set_from_resource $brd i3wm.color8 #282828
+set_from_resource $foc i3wm.color9 #282828
 
 # class                 border  backgr. text indicator child_border
-client.focused          $brd     $bg     $fg  $brd      $brd
+client.focused          $foc     $bg     $fg  $foc      $foc
 client.focused_inactive $brd     $bg     $fg  $brd      $brd
 client.unfocused        $brd     $bg     $fg  $brd      $brd
 client.urgent           $brd     $bg     $fg  $brd      $brd
@@ -206,9 +206,9 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
-gaps inner 8
-#gaps inner 0
-gaps bottom 17
+#gaps inner 8
+gaps inner 0
+gaps bottom 16
 
 # bindings for quick horizontal resizing
 bindsym $mod+Shift+bracketleft resize shrink width 10 px or 10 ppt
@@ -246,12 +246,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 #exec_always --no-startup-id hsetroot -solid $(xrdb -query | grep "*color8" | cut -f 2)
 exec_always --no-startup-id hsetroot -solid \#21272b
-exec --no-startup-id wal -R
+exec --no-startup-id wal -Rn
 exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id picom --config ~/.config/picom.conf -b
 exec --no-startup-id xset s 1200
 exec_always --no-startup-id xset r rate 300 25
 exec --no-startup-id redshift
 exec --no-startup-id unclutter
-
 
