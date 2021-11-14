@@ -17,6 +17,10 @@ HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zhistory
 
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -59,12 +63,20 @@ preexec() { echo -ne '\e[2 q' ;} # Use beam shape cursor for each new prompt.
 
 function cd_with_fzf {
     cd $HOME
-    cd "$(fd -t d | fzf --preview="tree -C -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
-    clear && echo "$PWD" && tree -C -L 1
+    cd "$(fd -t d | fzf --preview="tree -aC -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
+    clear && echo "$PWD" && tree -aC -L 1
     zle reset-prompt
 }
 zle -N cd_with_fzf
 bindkey '^o' cd_with_fzf
+
+function pdf_with_fzf {
+    cd $HOME
+    zathura "$(fd -e "pdf" | fzf)"
+    zle reset-prompt
+}
+zle -N pdf_with_fzf
+bindkey '^p' pdf_with_fzf
 
 function cd_up {
     cd .. && print "" && ls
@@ -76,10 +88,6 @@ bindkey '^u' cd_up
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Run GPG agent
 GPG_TTY=$(tty)
@@ -107,4 +115,3 @@ bindkey '^T' fzf-completion
 
 # Load zsh plugins
 source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
