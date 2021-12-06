@@ -14,6 +14,9 @@ URxvt.letterSpace: -1
 
 urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
 
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
 URxvt.keysym.C-equal:     resize-font:reset

@@ -59,12 +59,20 @@ preexec() { echo -ne '\e[2 q' ;} # Use beam shape cursor for each new prompt.
 
 function cd_with_fzf {
     cd $HOME
-    cd "$(fd -t d | fzf --preview="tree -C -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
-    clear && echo "$PWD" && tree -C -L 1
+    cd "$(fd -t d | fzf --preview="tree -aC -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
+    clear && echo "$PWD" && tree -aC -L 1
     zle reset-prompt
 }
 zle -N cd_with_fzf
 bindkey '^o' cd_with_fzf
+
+function pdf_with_fzf {
+    cd $HOME
+    zathura "$(fd -e "pdf" | fzf)"
+    zle reset-prompt
+}
+zle -N pdf_with_fzf
+bindkey '^p' pdf_with_fzf
 
 function cd_up {
     cd .. && print "" && ls

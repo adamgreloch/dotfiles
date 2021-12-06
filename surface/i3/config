@@ -121,10 +121,10 @@ set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6: am"
-set $ws7 "7: gal"
-set $ws8 "8: pmat"
-set $ws9 "9: wpf"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
@@ -206,8 +206,9 @@ mode "$mode_gaps_inner" {
         bindsym Escape mode "default"
 }
 
+gaps inner 9
 #gaps inner 8
-gaps inner 0
+#gaps inner 0
 gaps bottom 16
 
 # bindings for quick horizontal resizing
@@ -250,7 +251,7 @@ exec --no-startup-id wal -Rn
 exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id picom --config ~/.config/picom.conf -b
 exec --no-startup-id xset s 1200
-exec_always --no-startup-id xset r rate 300 25
+exec_always --no-startup-id xset r rate 200 35
 exec --no-startup-id redshift
 exec --no-startup-id unclutter
 
