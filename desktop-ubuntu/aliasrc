@@ -1,0 +1,23 @@
+alias ls='ls -a --color=auto'
+alias mv='mv -v'
+alias cp='rsync --info=progress2'
+alias rm='rm -I'
+
+alias v='vim'
+alias vi3='vim ~/.config/i3/config'
+alias vpol='vim ~/.config/polybar/config'
+alias vxr='vim ~/.Xresources'
+alias shdn='shutdown now'
+alias z='zathura'
+alias rg='ranger'
+alias xdg='xdg-open'
+alias blog='cd ~/Pudlo/nowyblog/src/content/posts'
+
+alias nd='cd $NOTESDIR'
+alias sem='cd $SEM'
+alias plan='feh ~/Pudlo/studia/plan.gif'
+
+# if [[ -n "$SSH_CONNECTION" ]]; then
+# 	alias vim='vim -X'
+# fi
+
