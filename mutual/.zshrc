@@ -10,7 +10,7 @@ fi
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%c%b $ "
+PS1="%{$fg[green]%}%B%c%b $%{$reset_color%} "
 
 # History in cache directory:
 HISTSIZE=5000

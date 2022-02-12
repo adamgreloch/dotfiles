@@ -1,18 +1,36 @@
 [colors]
-background = ${xrdb:background:#222}
+; bright background
+; color12 = #000000
+; foreground = #000000
+; background = #00121212
+; color8 = #22000000
+
+background = #BF121212
 foreground = ${xrdb:color7:#222}
-foreground-alt = ${xrdb:color7:#222}
-primary = ${xrdb:color1:#222}
-secondary = ${xrdb:color2:#222}
-alert = ${xrdb:color3:#222}
-color0 = ${xrdb:color0:#222}
+color8 = #44FFFFFF
 color9 = ${xrdb:color9:#222}
 color12 = ${xrdb:color12:#222}
 
+; pywal
+; background = ${xrdb:background:#222}
+; foreground = ${xrdb:color7:#222}
+; foreground-alt = ${xrdb:color7:#222}
+; primary = ${xrdb:color1:#222}
+; secondary = ${xrdb:color2:#222}
+; alert = ${xrdb:color3:#222}
+; color0 = ${xrdb:color0:#222}
+; color8 = ${xrdb:color8:#222}
+; color9 = ${xrdb:color9:#222}
+; color12 = ${xrdb:color12:#222}
+
 [section/look]
-width = 100%
-offset-x = 0%
-offset-y = 0%
+;width = 98.95%
+;offset-x = 0.5%
+;offset-y = 0.7%
+
+width = 55.1%
+offset-x = 22.45%
+offset-y = 0.55%
 
 font-0 = Gohu GohuFont:size=11;2
 
@@ -21,8 +39,6 @@ height = 1.4%
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-;background = #AA282828
-;foreground = #ebdbb2
 separator = 
 module-margin-right = 1
 module-margin-left = 1
@@ -36,21 +52,20 @@ border-color = ${xrdb:color12:#222}
 override-redirect = true
 wm-restack=i3
 
-bottom = true
+bottom = false
 
-[bar/dp-left]
-monitor = DP-0.8
+[bar/hdmi-left]
+monitor = HDMI-2
 fixed-center = true
 modules-left = i3 xwindow
 modules-right = music pulseaudio cpu memory network date
 inherit = section/look
 
-[bar/hdmi-left]
-monitor = HDMI-0
+[bar/hdmi-right]
+monitor = HDMI-3
 modules-left = i3 
 fixed-center = true
 inherit = section/look
-
 tray-position=right
 
 [module/music]
@@ -66,7 +81,7 @@ date = %H:%M:%S - %a, %d.%m.%Y%
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 100
+label-maxlen = 50
 
 [module/i3]
 type = internal/i3
@@ -76,7 +91,7 @@ label-unfocused = %name%
 label-visible = %name%
 label-urgent = %name%
 
-format = <label-state>
+format = <label-state> <label-mode>
 
 label-focused-padding = 2
 label-unfocused-padding = 2
@@ -86,8 +101,9 @@ label-urgent-padding = 2
 pin-workspaces = true
 strip-wsnumbers = false
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = ${colors.color9}
-label-unfocused-foreground = ${colors.color9}
+label-focused-underline = ${colors.color8}
+label-unfocused-foreground = ${colors.color8}
+# ^ were color9 when using pywal
 index-sort = true
 enable-click = true
 enable-scroll = false
@@ -95,28 +111,15 @@ wrapping-scroll = false
 reverse-scroll = false
 fuzzy-match = true
 
-[module/polywins]
-type = custom/script
-exec = ~/.config/polybar/polywins.sh 2>/dev/null
-case="lower"
-active_text_color = ${colors.foreground}
-inactive_text_color = ${colors.color9}
-format = <label>
-label = %output%
-label-padding = 1
-tail = true
-interval = 1
-
 [module/network]
 type = internal/network
 
 interface = enp6s0
 interval = 3.0
 spacing = 1
-label-connected = %ifname%
-udspeed-minwidth = 1
-label-disconnected = disconnected
-label-disconnected-foreground = #E80424
+label-connected =
+label-disconnected = no network
+;label-disconnected-foreground = #E80424
 accumulate-stats = true
 unknown-as-up = true
 
@@ -144,7 +147,8 @@ bar-volume-indicator = |
 bar-volume-fill = |
 bar-volume-fill-foreground = ${colors.foreground}
 bar-volume-empty = |
-bar-volume-empty-foreground = ${colors.color9}
+bar-volume-empty-foreground = ${colors.color8}
+# ^ was color9 when using pywal
 
 sink = alsa_output.pci-0000_00_0f.3.analog-stereo
 

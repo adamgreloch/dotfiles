@@ -1,7 +1,8 @@
 configuration {
 	modi: "combi";
 	font: "Gohu GohuFont 9";
-	theme: "~/.cache/wal/colors-rofi-dark";
 	location: 0;
 }
 
+//@theme "/usr/share/rofi/themes/Paper.rasi"
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"

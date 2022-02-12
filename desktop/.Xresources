@@ -12,54 +12,65 @@ Super <Key> plus: larger-vt-font() \n\
 Super <Key> KP_Subtract: smaller-vt-font() \n\
 Super <Key> KP_Add: larger-vt-font() \n
 
-URxvt.font:xft:JetBrains Mono:size=12
-URxvt.internalBorder: 10
+!URxvt.font:xft:JetBrains Mono:size=14
+!URxvt.font:xft:Fira Code:style=Medium:size=13
+!URxvt.font:xft:Fira Code:size=13
+URxvt.font:xft:Ubuntu Mono:size=14
+URxvt.internalBorder: 5
 URxvt.fading: 0
 URxvt.scrollBar: false
 URxvt.letterSpace: -1
+URxvt.lineSpace: 1
 URxvt.iso14755: true
 URxvt.iso14755_52: false
 
 urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
 URxvt.keysym.C-equal:     resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 
-! -----------------------------------------------------------------------------
-! File: gruvbox-dark.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 6 Sep 2014
-! -----------------------------------------------------------------------------
-
-! hard contrast: *background: #1d2021
-*background: #282828
-! soft contrast: *background: #32302f
-*foreground: #ebdbb2
-! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
-! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
-! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
-! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
-! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
-! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
-! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
-! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+*.foreground:  #dedede
+*.background:  #121212
+*.cursorColor: #ffa560
+!
+! Black
+*.color0:      #929292
+*.color8:      #bdbdbd
+!
+! Red
+*.color1:      #e27373
+*.color9:      #ffa1a1
+!
+! Green
+*.color2:      #94b979
+*.color10:     #bddeab
+!
+! Yellow
+*.color3:      #ffba7b
+*.color11:     #ffdca0
+!
+! Blue
+*.color4:      #97bedc
+*.color12:     #b1d8f6
+!
+! Magenta
+*.color5:      #e1c0fa
+*.color13:     #fbdaff
+!
+! Cyan
+*.color6:      #00988e
+*.color14:     #1ab2a8
+!
+! White
+*.color7:      #dedede
+*.color15:     #ffffff
+!
+! Bold, Italic, Underline
+*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:

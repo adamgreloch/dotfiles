@@ -1,0 +1,12 @@
+#!/bin/bash
+# Usage: ddc-setbrightness 50
+if [ $# -eq 2 ]
+then
+    ddcutil --bus=1 setvcp 0x10 "$1" "$2" --sleep-multiplier .25 &
+    ddcutil --bus=2 setvcp 0x10 "$1" "$2" --sleep-multiplier .25 &
+    wait
+else
+    ddcutil --bus=1 setvcp 0x10 "$1" --sleep-multiplier .25 &
+    ddcutil --bus=2 setvcp 0x10 "$1" --sleep-multiplier .25 &
+    wait
+fi

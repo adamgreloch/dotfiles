@@ -1,3 +1,4 @@
+set recolor "true"
 set adjust-open "bestfit"
 set scroll-page-aware "true"
 set scroll-step 100
@@ -5,3 +6,37 @@ set font "Gohu GohuFont 10"
 set guioptions s
 set highlight-active-color "#ffffff"
 set highlight-transparency 1
+
+set recolor "true"
+
+set completion-bg "#121212"
+set completion-fg "#dedede"
+set completion-group-bg "#121212"
+set completion-group-fg "#94b979"
+set completion-highlight-bg "#dedede"
+set completion-highlight-fg "#121212"
+
+set recolor-lightcolor "#121212"
+set recolor-darkcolor "#dedede"
+set default-bg "#121212"
+
+set inputbar-bg "#121212"
+set inputbar-fg "#dedede"
+set notification-bg "#121212"
+set notification-fg "#dedede"
+set notification-error-bg "#e27373"
+set notification-error-fg "#dedede"
+set notification-warning-bg "#e27373"
+set notification-warning-fg "#dedede"
+set statusbar-bg "#121212"
+set statusbar-fg "#dedede"
+set index-bg "#121212"
+set index-fg "#dedede"
+set index-active-bg "#dedede"
+set index-active-fg "#121212"
+set render-loading-bg "#121212"
+set render-loading-fg "#dedede"
+
+set window-title-home-tilde true
+set statusbar-basename true
+set selection-clipboard clipboard
