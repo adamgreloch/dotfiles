@@ -8,24 +8,26 @@ alert = ${xrdb:color3:#222}
 color0 = ${xrdb:color0:#222}
 color9 = ${xrdb:color9:#222}
 color12 = ${xrdb:color12:#222}
+text = ${xrdb:color11:#222}
+sep = ${xrdb:color11:#222}
 
 [section/look]
 width = 100%
 offset-x = 0%
 offset-y = 0%
 
-font-0 = "JetBrains Mono:style=Bold:size=14;6"
-font-1 = "JetBrains Mono:style=Bold:size=14;6"
+font-0 = "JetBrains Mono:style=Bold:size=11;4"
+font-1 = "JetBrains Mono:style=Bold:size=11;4"
 
 line-size = 3
-height = 1.65%
+height = 1.45%
 
 background = ${colors.background}
-foreground = ${colors.foreground}
+foreground = ${colors.text}
 ;background = #AA282828
 ;foreground = #ebdbb2
 separator = |
-separator-foreground = ${colors.color9}
+separator-foreground = ${colors.sep}
 module-margin-right = 1
 module-margin-left = 1
 
@@ -38,12 +40,13 @@ border-color = ${xrdb:color12:#222}
 override-redirect = true
 wm-restack=i3
 
-bottom = true
+bottom = false
 
 [bar/main]
 fixed-center = true
 modules-left = i3
-modules-right = pulseaudio battery cpu memory network time date
+modules-center = pulseaudio battery cpu memory network
+modules-right = xwindow time date
 inherit = section/look
 tray-position=right
 
@@ -57,7 +60,7 @@ date = %d-%m-%y%
 
 [module/xwindow]
 type = internal/xwindow
-label = %{T2} %title% %{T-}
+label = %{T2}%title%%{T-}
 label-maxlen = 100
 
 [module/i3]
@@ -79,7 +82,7 @@ pin-workspaces = true
 strip-wsnumbers = false
 label-focused-foreground = ${colors.foreground}
 #label-focused-underline = ${colors.color9}
-label-unfocused-foreground = ${colors.color9}
+label-unfocused-foreground = ${colors.text}
 index-sort = true
 enable-click = true
 enable-scroll = false

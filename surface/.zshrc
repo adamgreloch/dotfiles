@@ -99,11 +99,14 @@ export EDITOR=vim
 export VISUAL=vim
 export PF_INFO="ascii title os kernel uptime pkgs shell wm memory"
 
-# Add texlive to PATH
+# add texlive to path
 export PATH="$PATH:/usr/local/texlive/2021/bin/x86_64-linux"
 MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH; export MANPATH
 INFOPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 RANGER_LOAD_DEFAULT_RC=FALCE:$RANGER_LOAD_DEFAULT_RC; export RANGER_LOAD_DEFAULT_RC
+
+# add idea to path
+export PATH="$PATH:/usr/local/idea-IU/bin"
 
 # FZF variables
 export FZF_DEFAULT_COMMAND="fd -H"

@@ -8,11 +8,14 @@ if command  -v gvim &> /dev/null; then
 fi
 
 alias v='vim'
+alias vxm='vim ~/.config/xmonad/xmonad.hs'
+alias vxmb='vim ~/.config/xmobar/xmobarrc'
 alias vi3='vim ~/.config/i3/config'
 alias vpol='vim ~/.config/polybar/config'
 alias vxr='vim ~/.Xresources'
 alias shdn='shutdown now'
 alias z='zathura'
+alias zp='z *.pdf'
 alias rg='ranger'
 alias blog='cd ~/Pudlo/nowyblog/src/content/posts'
 
