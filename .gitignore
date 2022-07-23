@@ -14,6 +14,8 @@
 !.xinitrc
 !.xprofile
 !.Xresources
+!xmobarrc
+!xmonad.hs
 !picom.conf
 !drzemka.py
 !**/aliasrc

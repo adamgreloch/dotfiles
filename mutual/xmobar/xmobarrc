@@ -1,16 +1,14 @@
 Config {
    -- appearance
      font =         "xft:JetBrains Mono:size=9:bold:antialias=true"
-   , bgColor =      "#002b36"
+   , bgColor =      "#000000"
    , fgColor =      "#657b83"
    , position =     Top
-   , border =       BottomB
-   , borderColor =  "#586e75"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%XMonadLog% }{ %battery% | %cpu% | %coretemp% | %memory% | %wi% | %date%"
+   , template = "%XMonadLog% }{ %battery% | %alsa:default:Master% | %cpu% | %coretemp% | %memory% | %wi% | %date%"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -36,13 +34,17 @@ Config {
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands =
         -- network activity monitor (dynamic interface resolution)
-        [ Run Wireless ""    [ "--template" , "<ssid> <quality>%"
+        [ Run Wireless ""    [ "--template" , "<ssid>: <quality>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "80"         -- units: %
                              , "--low"      , "#dc322f"
                              ] 10
+        , Run Alsa "default" "Master" [ "-t", "V: <volume>%<status>"
+                                      , "--", "-O", "", "-o", " (muted)"
+                                      , "--offc", "#657b83"
+                                      ]
         -- cpu activity monitor
-        , Run Cpu       [ "--template" , "CPU: <total>%"
+        , Run Cpu       [ "--template" , "C: <total>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--high"     , "#dc322f"
@@ -56,29 +58,29 @@ Config {
                              ] 50
 
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"RAM: <usedratio>%"
+        , Run Memory         [ "--template" ,"M: <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--high"     , "#dc322f"
                              ] 10
 
         -- battery monitor
-        , Run Battery        [ "--template" , "<acstatus>"
+        , Run Battery        [ "--template" , "B: <acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "#dc322f"
                              , "--" -- battery specific options
                              -- discharging status
-                             , "-o"	, "<left>% (<timeleft>)"
+                             , "-o"	, "<left>%"
                              -- AC "on" status
-                             , "-O"	, "<fc=#268bd2>Charging</fc>"
+                             , "-O"	, "<fc=#268bd2>+</fc>"
                              -- charged status
-                             , "-i"	, "<fc=#859900>Charged</fc>"
+                             , "-i"	, "<fc=#859900>++</fc>"
                              ] 50
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "%H:%M (%a) %F" "date" 10
+        , Run Date           "%H:%M (%a) %F " "date" 10
 
         -- keyboard layout indicator
         , Run XMonadLog
