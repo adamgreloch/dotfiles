@@ -8,4 +8,5 @@ exec redshift &
 exec picom &
 exec unclutter --timeout 3 &
 $HOME/.fehbg &
+xsetroot -cursor_name left_ptr
 exec $HOME/.cache/xmonad/xmonad-x86_64-linux

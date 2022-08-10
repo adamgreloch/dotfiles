@@ -1,6 +1,6 @@
 alias ls='ls -a --color=auto'
 alias mv='mv -v'
-alias cp='rsync --info=progress2'
+#alias cp='rsync --info=progress2'
 alias rm='rm -I'
 
 if command  -v gvim &> /dev/null; then
