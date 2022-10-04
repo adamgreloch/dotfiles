@@ -1,3 +1,3 @@
 # dotfiles
 
-![](https://i.imgur.com/IsPPJRe.png)
+My old pre-NixOS dotfiles repo
